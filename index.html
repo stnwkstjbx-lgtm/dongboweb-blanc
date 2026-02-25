@@ -155,19 +155,6 @@ a,button{cursor:none}
 .cur-label{position:fixed;pointer-events:none;z-index:10001;font-family:var(--display);font-size:.5rem;color:var(--rose);letter-spacing:.25em;text-transform:uppercase;opacity:0;transition:opacity .35s var(--ease);font-weight:400;font-style:italic;white-space:nowrap}
 .cur-label.show{opacity:1}
 
-/* ============================================================
-   PLACEHOLDER — shimmer skeleton 효과
-   ============================================================ */
-.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;gap:10px;position:relative;overflow:hidden}
-.ph::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.08) 50%,transparent 60%);animation:shimmer 2.4s infinite;background-size:200% 100%}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.ph-icon{width:28px;height:28px;opacity:.06}
-.ph-icon svg{width:100%;height:100%;fill:currentColor;color:var(--fg)}
-.ph-text{font-size:.5rem;color:rgba(42,34,37,.05);letter-spacing:.22em;text-transform:uppercase;font-weight:400}
-.ph-dark .ph-icon{opacity:.04}
-.ph-dark .ph-icon svg{color:var(--bg)}
-.ph-dark .ph-text{color:rgba(255,255,255,.04)}
-.ph-dark::after{background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.03) 50%,transparent 60%);background-size:200% 100%}
 
 /* ============================================================
    CSS CONTAIN — 렌더링 성능 최적화
@@ -224,7 +211,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
    HERO — CINEMATIC
    ============================================================ */
 .hero{height:100vh;height:100dvh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:-80px;background:linear-gradient(160deg,var(--bg2) 0%,var(--bg3) 30%,var(--rose-lighter) 60%,var(--bg4) 100%);will-change:transform;transition:transform .08s linear}
+.hero-bg{position:absolute;inset:-80px;background:url('https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&q=80') center/cover no-repeat;will-change:transform;transition:transform .08s linear}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;will-change:transform;animation:orbFloat 20s infinite ease-in-out}
 .hero-orb-1{width:500px;height:500px;background:var(--rose-light);top:-10%;right:-5%}
 .hero-orb-2{width:400px;height:400px;background:var(--gold-light);bottom:0;left:-5%;animation-delay:-7s}
@@ -279,7 +266,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 .about{padding:160px 48px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .about-left{position:relative;order:1}
 .about-right{order:2}
-.about-img-wrap{position:relative;aspect-ratio:4/5;background:linear-gradient(155deg,var(--bg2),var(--bg3),var(--rose-lighter));overflow:hidden}
+.about-img-wrap{position:relative;aspect-ratio:4/5;background:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80') center/cover no-repeat;overflow:hidden}
 .about-img-wrap::after{content:'';position:absolute;inset:0;border:1px solid var(--border2)}
 .about-accent{position:absolute;top:-20px;right:-20px;width:100px;height:100px;border:1px solid var(--rose-light);opacity:.35}
 .about-accent-2{position:absolute;bottom:-16px;left:-16px;width:70px;height:70px;background:var(--rose-lighter);opacity:.25}
@@ -348,16 +335,16 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 .gal-item:hover{z-index:2}
 .g-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;transition:transform .8s var(--ease)}
 .gal-item:hover .g-inner{transform:scale(1.06)}
-.g1{background:linear-gradient(155deg,#3A3234,#2E2628)}
-.g2{background:linear-gradient(155deg,#342E30,#2A2426)}
-.g3{background:linear-gradient(155deg,#383032,#2C2628)}
-.g4{background:linear-gradient(155deg,#363030,#2E2828)}
-.g5{background:linear-gradient(155deg,#3C3436,#302A2C)}
-.g6{background:linear-gradient(155deg,#343030,#2A2628)}
-.g7{background:linear-gradient(155deg,#383234,#2E2A2C)}
-.g8{background:linear-gradient(155deg,#3A3436,#302C2E)}
-.g9{background:linear-gradient(155deg,#363234,#2C282A)}
-.g10{background:linear-gradient(155deg,#3E3638,#322E30)}
+.g1{background:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80') center/cover no-repeat}
+.g2{background:url('https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&q=80') center/cover no-repeat}
+.g3{background:url('https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&q=80') center/cover no-repeat}
+.g4{background:url('https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=80') center/cover no-repeat}
+.g5{background:url('https://images.unsplash.com/photo-1577900232427-18219b9166a0?w=800&q=80') center/cover no-repeat}
+.g6{background:url('https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=800&q=80') center/cover no-repeat}
+.g7{background:url('https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&q=80') center/cover no-repeat}
+.g8{background:url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80') center/cover no-repeat}
+.g9{background:url('https://images.unsplash.com/photo-1601055903647-ddf1ee9701b7?w=800&q=80') center/cover no-repeat}
+.g10{background:url('https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=800&q=80') center/cover no-repeat}
 
 /* Overlay */
 .gal-overlay{position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.6));opacity:0;transition:opacity .5s var(--ease);display:flex;align-items:flex-end;padding:20px}
@@ -480,9 +467,9 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 .art-img{aspect-ratio:3/4;overflow:hidden;position:relative}
 .art-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;transition:transform .8s var(--ease)}
 .art-card:hover .art-img-inner{transform:scale(1.05)}
-.art-bg-1{background:linear-gradient(155deg,var(--bg2),var(--bg3))}
-.art-bg-2{background:linear-gradient(155deg,#EDE4DC,#E4D8CE)}
-.art-bg-3{background:linear-gradient(155deg,#F0E8E0,#E6DCD2)}
+.art-bg-1{background:url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&q=80') center/cover no-repeat}
+.art-bg-2{background:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80') center/cover no-repeat}
+.art-bg-3{background:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&q=80') center/cover no-repeat}
 .art-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(26,21,23,.65));opacity:0;transition:opacity .5s var(--ease);display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
 .art-card:hover .art-overlay{opacity:1}
 .art-overlay-text{font-family:var(--display);font-size:.5rem;color:rgba(255,255,255,.8);font-style:italic;line-height:1.8;transform:translateY(10px);transition:transform .5s var(--ease);font-weight:300}
@@ -720,13 +707,12 @@ footer{padding:48px;border-top:1px solid var(--border);position:relative}
 }
 [data-theme="dark"] ::selection{background:var(--rose-deep);color:var(--bg)}
 [data-theme="dark"] nav.scrolled{background:rgba(19,16,17,.92)}
-[data-theme="dark"] .hero-bg{background:linear-gradient(160deg,var(--bg2) 0%,var(--bg3) 30%,#2A1F22 60%,var(--bg4) 100%)}
+[data-theme="dark"] .hero-bg{background:url('https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&q=80') center/cover no-repeat;filter:brightness(.7)}
 [data-theme="dark"] .hero::after{background:radial-gradient(ellipse at center,transparent 40%,rgba(19,16,17,.5) 100%)}
 [data-theme="dark"] .gallery{background:#0E0C0D}
 [data-theme="dark"] .gallery::before{color:rgba(255,255,255,.02)}
 [data-theme="dark"] .reviews::before{color:var(--bg3)}
 [data-theme="dark"] .svc-card::before{opacity:.2}
-[data-theme="dark"] .ph::after{background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.03) 50%,transparent 60%);background-size:200% 100%}
 [data-theme="dark"] .mob-menu{background:var(--bg)}
 [data-theme="dark"] .mob-menu::before{color:var(--bg3)}
 [data-theme="dark"] .map-placeholder{background:var(--bg3)}
@@ -914,10 +900,6 @@ footer{padding:48px;border-top:1px solid var(--border);position:relative}
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
     <div class="hero-orb hero-orb-3"></div>
-    <div class="ph ph-dark">
-      <div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-      <span class="ph-text">대표 사진</span>
-    </div>
   </div>
   <div class="hero-content">
     <div class="hero-overtitle">Cheongdam Nail Atelier</div>
@@ -953,10 +935,6 @@ footer{padding:48px;border-top:1px solid var(--border);position:relative}
 <section class="about" id="about">
   <div class="about-left rv-left">
     <div class="about-img-wrap" data-hover="Our Story">
-      <div class="ph">
-        <div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-        <span class="ph-text">공간 사진</span>
-      </div>
     </div>
     <div class="about-accent"></div>
     <div class="about-accent-2"></div>
@@ -1047,20 +1025,20 @@ footer{padding:48px;border-top:1px solid var(--border);position:relative}
   <div class="gal-rows">
     <!-- ROW 1: 왼쪽으로 스크롤 (콘텐츠 2배 복제하여 무한 루프) -->
     <div class="gal-row gal-row-1" id="galRow1">
-      <div class="gal-item gal-item-wide g1" data-cap="프렌치 네일"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">프렌치 네일</span><span class="gal-sub">French Classic</span></div></div><span class="gal-num">01</span></div>
-      <div class="gal-item gal-item-sq g2" data-cap="글리터"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">글리터</span><span class="gal-sub">Glitter Art</span></div></div><span class="gal-num">02</span></div>
-      <div class="gal-item gal-item-tall g3" data-cap="미러 크롬"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">미러 크롬</span><span class="gal-sub">Chrome Mirror</span></div></div><span class="gal-num">03</span></div>
-      <div class="gal-item gal-item-wide g4" data-cap="플라워"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">플라워</span><span class="gal-sub">Floral Art</span></div></div><span class="gal-num">04</span></div>
-      <div class="gal-item gal-item-sq g5" data-cap="마블"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">마블</span><span class="gal-sub">Marble Gel</span></div></div><span class="gal-num">05</span></div>
+      <div class="gal-item gal-item-wide g1" data-cap="프렌치 네일"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">프렌치 네일</span><span class="gal-sub">French Classic</span></div></div><span class="gal-num">01</span></div>
+      <div class="gal-item gal-item-sq g2" data-cap="글리터"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">글리터</span><span class="gal-sub">Glitter Art</span></div></div><span class="gal-num">02</span></div>
+      <div class="gal-item gal-item-tall g3" data-cap="미러 크롬"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">미러 크롬</span><span class="gal-sub">Chrome Mirror</span></div></div><span class="gal-num">03</span></div>
+      <div class="gal-item gal-item-wide g4" data-cap="플라워"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">플라워</span><span class="gal-sub">Floral Art</span></div></div><span class="gal-num">04</span></div>
+      <div class="gal-item gal-item-sq g5" data-cap="마블"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">마블</span><span class="gal-sub">Marble Gel</span></div></div><span class="gal-num">05</span></div>
       <!-- 무한루프용 복제 (JS에서 자동 생성) -->
     </div>
     <!-- ROW 2: 오른쪽으로 스크롤 (반대 방향) -->
     <div class="gal-row gal-row-2" id="galRow2">
-      <div class="gal-item gal-item-sq g6" data-cap="원컬러"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">원컬러</span><span class="gal-sub">One Color</span></div></div><span class="gal-num">06</span></div>
-      <div class="gal-item gal-item-wide g7" data-cap="핸드 케어"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">핸드 케어</span><span class="gal-sub">Hand Care</span></div></div><span class="gal-num">07</span></div>
-      <div class="gal-item gal-item-tall g8" data-cap="시즌 아트"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">시즌 아트</span><span class="gal-sub">Seasonal</span></div></div><span class="gal-num">08</span></div>
-      <div class="gal-item gal-item-sq g9" data-cap="그라데이션"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">그라데이션</span><span class="gal-sub">Gradient</span></div></div><span class="gal-num">09</span></div>
-      <div class="gal-item gal-item-wide g10" data-cap="캐릭터 아트"><div class="g-inner"><div class="ph ph-dark"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">작업물</span></div></div><div class="gal-overlay"><div><span class="gal-cap">캐릭터 아트</span><span class="gal-sub">Character</span></div></div><span class="gal-num">10</span></div>
+      <div class="gal-item gal-item-sq g6" data-cap="원컬러"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">원컬러</span><span class="gal-sub">One Color</span></div></div><span class="gal-num">06</span></div>
+      <div class="gal-item gal-item-wide g7" data-cap="핸드 케어"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">핸드 케어</span><span class="gal-sub">Hand Care</span></div></div><span class="gal-num">07</span></div>
+      <div class="gal-item gal-item-tall g8" data-cap="시즌 아트"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">시즌 아트</span><span class="gal-sub">Seasonal</span></div></div><span class="gal-num">08</span></div>
+      <div class="gal-item gal-item-sq g9" data-cap="그라데이션"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">그라데이션</span><span class="gal-sub">Gradient</span></div></div><span class="gal-num">09</span></div>
+      <div class="gal-item gal-item-wide g10" data-cap="캐릭터 아트"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">캐릭터 아트</span><span class="gal-sub">Character</span></div></div><span class="gal-num">10</span></div>
     </div>
   </div>
   <div class="gal-cta-wrap rv">
@@ -1166,19 +1144,19 @@ footer{padding:48px;border-top:1px solid var(--border);position:relative}
   </div>
   <div class="art-grid">
     <div class="art-card rv rv-d1" data-hover="Profile">
-      <div class="art-img"><div class="art-img-inner art-bg-1"><div class="ph"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">아티스트</span></div></div>
+      <div class="art-img"><div class="art-img-inner art-bg-1"></div>
         <div class="art-overlay"><div class="art-overlay-text">"손톱 위에 그림을 그리는 것은<br>작은 캔버스에 마음을 담는 일이에요."</div></div>
       </div>
       <div class="art-info"><h3>정소윤</h3><div class="art-role">Head Artist · Founder</div><div class="art-tags"><span class="art-tag">핸드페인팅</span><span class="art-tag">프렌치</span><span class="art-tag">12년</span></div></div>
     </div>
     <div class="art-card rv rv-d2" data-hover="Profile">
-      <div class="art-img"><div class="art-img-inner art-bg-2"><div class="ph"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">아티스트</span></div></div>
+      <div class="art-img"><div class="art-img-inner art-bg-2"></div>
         <div class="art-overlay"><div class="art-overlay-text">"트렌드를 해석하되<br>고객님만의 개성을 살리는 게 목표예요."</div></div>
       </div>
       <div class="art-info"><h3>한예린</h3><div class="art-role">Senior Artist</div><div class="art-tags"><span class="art-tag">트렌디 아트</span><span class="art-tag">글리터</span><span class="art-tag">8년</span></div></div>
     </div>
     <div class="art-card rv rv-d3" data-hover="Profile">
-      <div class="art-img"><div class="art-img-inner art-bg-3"><div class="ph"><div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><span class="ph-text">아티스트</span></div></div>
+      <div class="art-img"><div class="art-img-inner art-bg-3"></div>
         <div class="art-overlay"><div class="art-overlay-text">"깔끔한 원컬러도 기본기가 탄탄해야<br>오래 예쁘게 유지돼요."</div></div>
       </div>
       <div class="art-info"><h3>김다은</h3><div class="art-role">Junior Artist</div><div class="art-tags"><span class="art-tag">원컬러</span><span class="art-tag">케어</span><span class="art-tag">4년</span></div></div>
@@ -1491,8 +1469,7 @@ function lbCloseF() {
 function lbUpdate() {
   const item = galOriginals[lbIdx];
   lbInner.style.background = getComputedStyle(item).background;
-  const ph = item.querySelector('.ph');
-  lbInner.innerHTML = ph ? ph.outerHTML : '';
+  lbInner.innerHTML = '';
   lbInner.style.opacity = '0';
   requestAnimationFrame(() => { lbInner.style.transition = 'opacity .4s'; lbInner.style.opacity = '1'; });
   lbCap.textContent = item.dataset.cap || '';
