@@ -217,20 +217,20 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 .hero-orb-2{width:400px;height:400px;background:var(--gold-light);bottom:0;left:-5%;animation-delay:-7s}
 .hero-orb-3{width:300px;height:300px;background:var(--rose-lighter);top:40%;left:30%;animation-delay:-14s}
 @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-20px) scale(1.05)}50%{transform:translate(-20px,30px) scale(.95)}75%{transform:translate(20px,10px) scale(1.02)}}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(253,251,249,.4) 100%)}
+.hero::after{content:'';position:absolute;inset:0;background:rgba(253,251,249,.72)}
 .hero-content{position:relative;z-index:2;max-width:680px;padding:0 24px}
 .hero-overtitle{font-family:var(--display);font-size:.48rem;letter-spacing:.6em;text-transform:uppercase;color:var(--rose);margin-bottom:24px;font-weight:300;opacity:0;animation:heroUp 1.2s .6s var(--ease) forwards;white-space:nowrap}
 .hero-overtitle::before,.hero-overtitle::after{content:'—';margin:0 10px;color:var(--dim3);font-weight:300}
 .hero-title{font-family:var(--display);font-size:clamp(2.6rem,5.8vw,4.8rem);font-weight:300;line-height:1.15;letter-spacing:-.01em;margin-bottom:24px;opacity:0;animation:heroUp 1.2s .8s var(--ease) forwards}
 .hero-title em{font-style:italic;color:var(--rose-dark);font-weight:400}
 .hero-title .line{display:block}
-.hero-sub{font-size:.8rem;color:var(--dim);line-height:2.2;font-weight:200;max-width:400px;margin:0 auto;letter-spacing:.02em;opacity:0;animation:heroUp 1.2s 1s var(--ease) forwards}
+.hero-sub{font-size:.8rem;color:var(--fg3);line-height:2.2;font-weight:300;max-width:400px;margin:0 auto;letter-spacing:.02em;opacity:0;animation:heroUp 1.2s 1s var(--ease) forwards}
 .hero-cta-wrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:36px;opacity:0;animation:heroUp 1.2s 1.2s var(--ease) forwards}
 .hero-cta{font-family:var(--body);font-size:.56rem;padding:14px 34px;background:var(--fg);color:var(--bg);text-decoration:none;letter-spacing:.14em;text-transform:uppercase;transition:all .5s var(--ease);font-weight:300;position:relative;overflow:hidden;border:none}
 .hero-cta::before{content:'';position:absolute;inset:0;background:var(--rose-dark);transform:translateX(-101%);transition:transform .5s var(--ease)}
 .hero-cta:hover::before{transform:translateX(0)}
 .hero-cta span{position:relative;z-index:1}
-.hero-cta-line{font-family:var(--body);font-size:.54rem;padding:14px 26px;background:transparent;color:var(--fg);text-decoration:none;letter-spacing:.14em;text-transform:uppercase;transition:all .4s var(--ease);font-weight:300;border:1px solid var(--border3)}
+.hero-cta-line{font-family:var(--body);font-size:.54rem;padding:14px 26px;background:transparent;color:var(--fg);text-decoration:none;letter-spacing:.14em;text-transform:uppercase;transition:all .4s var(--ease);font-weight:300;border:1px solid var(--fg2)}
 .hero-cta-line:hover{border-color:var(--fg);transform:translateY(-2px)}
 @keyframes heroUp{to{opacity:1;transform:none}}
 .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:heroUp 1.2s 1.5s var(--ease) forwards}
@@ -716,7 +716,7 @@ footer{padding:48px;border-top:1px solid var(--border);position:relative}
 [data-theme="dark"] ::selection{background:var(--rose-deep);color:var(--bg)}
 [data-theme="dark"] nav.scrolled{background:rgba(19,16,17,.92)}
 [data-theme="dark"] .hero-bg{background:url('https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&q=80') center/cover no-repeat;filter:brightness(.7)}
-[data-theme="dark"] .hero::after{background:radial-gradient(ellipse at center,transparent 40%,rgba(19,16,17,.5) 100%)}
+[data-theme="dark"] .hero::after{background:rgba(19,16,17,.7)}
 [data-theme="dark"] .gallery{background:#0E0C0D}
 [data-theme="dark"] .gallery::before{color:rgba(255,255,255,.02)}
 [data-theme="dark"] .reviews::before{color:var(--bg3)}
