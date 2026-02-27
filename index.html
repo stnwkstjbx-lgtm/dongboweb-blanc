@@ -1441,8 +1441,8 @@ document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
    GALLERY — CLONE ROWS FOR INFINITE SCROLL
    ============================================================ */
 document.querySelectorAll('.gal-row').forEach(row => {
-  const items = row.innerHTML;
-  row.innerHTML = items + items;
+  const children = [...row.children];
+  children.forEach(child => row.appendChild(child.cloneNode(true)));
 });
 
 /* ============================================================
@@ -1716,6 +1716,12 @@ setTimeout(showToast, 30000);
 requestAnimationFrame(() => updateSecDots(window.scrollY));
 // scroll 이벤트에 추가 리스너
 window.addEventListener('scroll', () => updateSecDots(window.scrollY), { passive: true });
+
+/* ============================================================
+   IMAGE PROTECTION — 이미지 우클릭·드래그 방지
+   ============================================================ */
+document.addEventListener('contextmenu', e => { if (e.target.closest('.gal-item,.art-img,.about-img-wrap,.hero-bg,.lb-inner')) e.preventDefault(); });
+document.addEventListener('dragstart', e => { if (e.target.closest('.gal-item,.art-img,.about-img-wrap,.hero-bg,.lb-inner')) e.preventDefault(); });
 
 // 포트폴리오 프리뷰용 자동스크롤 (iframe 안에 있을 때만 작동)
 var _isPreview=false;try{_isPreview=window.self!==window.top}catch(e){_isPreview=true}
