@@ -646,7 +646,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   nav.nav-hidden{transform:translateY(-100%)}
   .back-top{bottom:88px;right:16px;width:38px;height:38px}
   .sec-dots{display:none}
-  .theme-toggle{top:16px;right:56px;width:32px;height:32px;font-size:.65rem}
+  .theme-toggle{position:fixed;top:16px;right:56px;width:32px;height:32px;font-size:.65rem;z-index:201}
   .toast{bottom:80px;max-width:calc(100vw - 40px);font-size:.68rem;padding:12px 24px 12px 16px}
   .hero{min-height:100vh;min-height:100dvh}
   .hero-title{font-size:clamp(2rem,8.5vw,3rem)}
@@ -774,7 +774,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 [data-theme="dark"] .sec-curve svg path{fill:var(--bg)}
 
 /* Dark mode toggle button */
-.theme-toggle{position:fixed;top:28px;right:140px;z-index:201;width:36px;height:36px;border-radius:50%;border:1px solid var(--border2);background:var(--white);display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease);font-size:.75rem;line-height:1;opacity:.6}
+.theme-toggle{width:34px;height:34px;border-radius:50%;border:1px solid var(--border2);background:none;display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease);font-size:.7rem;line-height:1;opacity:.5;flex-shrink:0}
 .theme-toggle:hover{opacity:1;border-color:var(--rose);transform:scale(1.1)}
 
 /* ============================================================
@@ -905,7 +905,6 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 <div class="cur-label" id="curLabel"></div>
 
 <!-- DARK MODE TOGGLE -->
-<button class="theme-toggle" id="themeToggle" aria-label="다크모드 전환">☽</button>
 
 <!-- SECTION DOT NAVIGATOR (데스크톱) -->
 <div class="sec-dots" id="secDots">
@@ -952,6 +951,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
     <a class="nav-link" href="#reviews">Reviews</a>
     <a class="nav-link" href="#info">Visit</a>
     <a class="nav-cta" href="https://pf.kakao.com/_zAqqX_blanc" target="_blank" rel="noopener noreferrer"><span>예약</span></a>
+    <button class="theme-toggle" id="themeToggle" aria-label="다크모드 전환">☽</button>
   </div>
   <button class="hbg" id="hbg" aria-label="메뉴 열기/닫기" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
