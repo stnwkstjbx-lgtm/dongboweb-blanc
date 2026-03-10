@@ -125,26 +125,27 @@ a,button{cursor:none}
 /* ============================================================
    CINEMATIC LOADER
    ============================================================ */
-.loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center}
 .loader-bg{position:absolute;inset:0;background:var(--fg);clip-path:circle(150% at 50% 50%);transition:clip-path 1.2s cubic-bezier(.76,0,.24,1)}
 .loader.done .loader-bg{clip-path:circle(0% at 50% 50%)}
-.loader.done{visibility:hidden;pointer-events:none;transition:visibility 0s 1.4s}
-.loader.done .loader-logo,.loader.done .loader-tagline,.loader.done .loader-ring{opacity:0;transform:scale(.9);transition:all .3s var(--ease)}
-.loader-logo{display:flex;gap:.15em;margin-bottom:40px}
-.loader-letter{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:300;color:var(--bg);letter-spacing:.35em;opacity:0;transform:translateY(30px) rotateX(40deg);animation:letterIn .8s var(--ease) forwards}
-.loader-letter:nth-child(1){animation-delay:.3s}
-.loader-letter:nth-child(2){animation-delay:.4s}
-.loader-letter:nth-child(3){animation-delay:.5s}
-.loader-letter:nth-child(4){animation-delay:.6s}
-.loader-letter:nth-child(5){animation-delay:.7s}
-@keyframes letterIn{to{opacity:1;transform:none}}
-.loader-tagline{font-family:var(--display);font-size:.65rem;color:var(--dim);letter-spacing:.5em;text-transform:uppercase;font-style:italic;opacity:0;animation:fadeSlide .8s 1s var(--ease) forwards}
-.loader-ring{position:absolute;width:160px;height:160px;opacity:0;animation:fadeSlide .5s .9s var(--ease) forwards}
+.loader.done{visibility:hidden;pointer-events:none;transition:visibility 0s 1.6s}
+.loader-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.loader-ring{width:240px;height:240px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0;animation:ringIn .6s .4s var(--ease) forwards}
 .loader-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-.loader-ring circle{fill:none;stroke-width:1;cx:80;cy:80;r:76}
-.loader-ring-track{stroke:rgba(255,255,255,.06)}
-.loader-ring-fill{stroke:url(#roseGold);stroke-dasharray:477.5;stroke-dashoffset:477.5;stroke-linecap:round;transition:stroke-dashoffset .1s linear}
-@keyframes fadeSlide{to{opacity:1;transform:none}}
+.loader-ring-track{fill:none;stroke:rgba(255,255,255,.04);stroke-width:.5}
+.loader-ring-fill{fill:none;stroke:url(#roseGold);stroke-width:.8;stroke-dasharray:703.7;stroke-dashoffset:703.7;stroke-linecap:round;transition:stroke-dashoffset .15s linear}
+@keyframes ringIn{to{opacity:1}}
+.loader-logo{display:flex;gap:.12em;margin-bottom:16px}
+.loader-letter{font-family:var(--display);font-size:clamp(2rem,5vw,3rem);font-weight:300;color:var(--bg);letter-spacing:.3em;opacity:0;animation:letterIn .7s var(--ease) forwards}
+.loader-letter:nth-child(1){animation-delay:.5s}
+.loader-letter:nth-child(2){animation-delay:.6s}
+.loader-letter:nth-child(3){animation-delay:.7s}
+.loader-letter:nth-child(4){animation-delay:.8s}
+.loader-letter:nth-child(5){animation-delay:.9s}
+@keyframes letterIn{to{opacity:1;transform:none}}
+.loader-tagline{font-family:var(--display);font-size:.6rem;color:var(--dim2);letter-spacing:.4em;text-transform:uppercase;font-style:italic;opacity:0;animation:fadeIn .6s 1.1s var(--ease) forwards}
+@keyframes fadeIn{to{opacity:1}}
+.loader.done .loader-center{opacity:0;transform:scale(.92);transition:all .4s var(--ease)}
 
 /* ============================================================
    CUSTOM CURSOR
@@ -879,20 +880,22 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 <!-- LOADER -->
 <div class="loader" id="loader">
   <div class="loader-bg"></div>
-  <div class="loader-logo" style="position:relative;z-index:2">
-    <span class="loader-letter">B</span>
-    <span class="loader-letter">L</span>
-    <span class="loader-letter">A</span>
-    <span class="loader-letter">N</span>
-    <span class="loader-letter">C</span>
-  </div>
-  <div class="loader-tagline" style="position:relative;z-index:2">Cheongdam Nail Atelier</div>
-  <div class="loader-ring" style="position:relative;z-index:2">
-    <svg viewBox="0 0 160 160">
-      <defs><linearGradient id="roseGold" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#B8918F"/><stop offset="100%" stop-color="#C5A97D"/></linearGradient></defs>
-      <circle class="loader-ring-track" cx="80" cy="80" r="76"/>
-      <circle class="loader-ring-fill" id="loaderRing" cx="80" cy="80" r="76"/>
-    </svg>
+  <div class="loader-center">
+    <div class="loader-ring">
+      <svg viewBox="0 0 240 240">
+        <defs><linearGradient id="roseGold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#B8918F"/><stop offset="100%" stop-color="#C5A97D"/></linearGradient></defs>
+        <circle class="loader-ring-track" cx="120" cy="120" r="112"/>
+        <circle class="loader-ring-fill" id="loaderRing" cx="120" cy="120" r="112"/>
+      </svg>
+    </div>
+    <div class="loader-logo">
+      <span class="loader-letter">B</span>
+      <span class="loader-letter">L</span>
+      <span class="loader-letter">A</span>
+      <span class="loader-letter">N</span>
+      <span class="loader-letter">C</span>
+    </div>
+    <div class="loader-tagline">Nail Atelier</div>
   </div>
 </div>
 
@@ -1421,18 +1424,18 @@ if(ftTopBtn) ftTopBtn.onclick = function(){ window.scrollTo({top:0,behavior:'smo
    ============================================================ */
 const loader = document.getElementById('loader');
 const loaderRing = document.getElementById('loaderRing');
-const ringTotal = 2 * Math.PI * 76;
+const ringTotal = 2 * Math.PI * 112;
 let ringPct = 0;
 const ringInterval = setInterval(function(){
-  ringPct += Math.random() * 6 + 2;
+  ringPct += Math.random() * 5 + 1.5;
   if(ringPct >= 100){ringPct = 100;clearInterval(ringInterval)}
   loaderRing.style.strokeDashoffset = ringTotal * (1 - ringPct / 100);
-}, 100);
+}, 80);
 window.addEventListener('load', function(){
   setTimeout(function(){
     ringPct = 100;clearInterval(ringInterval);
     loaderRing.style.strokeDashoffset = '0';
-    setTimeout(function(){loader.classList.add('done');document.body.style.overflow = ''}, 500);
+    setTimeout(function(){loader.classList.add('done');document.body.style.overflow = ''}, 600);
   }, 2600);
 });
 document.body.style.overflow = 'hidden';
