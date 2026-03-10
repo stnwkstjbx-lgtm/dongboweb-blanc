@@ -125,13 +125,11 @@ a,button{cursor:none}
 /* ============================================================
    CINEMATIC LOADER
    ============================================================ */
-.loader{position:fixed;inset:0;z-index:9999;background:var(--fg);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.pl-panel-top,.pl-panel-bot{position:absolute;left:0;right:0;height:50%;background:var(--fg);z-index:1;transition:transform 1.2s var(--ease)}
-.pl-panel-top{top:0}
-.pl-panel-bot{bottom:0}
-.loader.done .pl-panel-top{transform:translateY(-100%)}
-.loader.done .pl-panel-bot{transform:translateY(100%)}
+.loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.loader-bg{position:absolute;inset:0;background:var(--fg);clip-path:circle(150% at 50% 50%);transition:clip-path 1.2s cubic-bezier(.76,0,.24,1)}
+.loader.done .loader-bg{clip-path:circle(0% at 50% 50%)}
 .loader.done{visibility:hidden;pointer-events:none;transition:visibility 0s 1.4s}
+.loader.done .loader-logo,.loader.done .loader-tagline,.loader.done .loader-progress{opacity:0;transform:scale(.9);transition:all .3s var(--ease)}
 .loader-logo{display:flex;gap:.15em;margin-bottom:40px}
 .loader-letter{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:300;color:var(--bg);letter-spacing:.35em;opacity:0;transform:translateY(30px) rotateX(40deg);animation:letterIn .8s var(--ease) forwards}
 .loader-letter:nth-child(1){animation-delay:.3s}
@@ -880,8 +878,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 
 <!-- LOADER -->
 <div class="loader" id="loader">
-  <div class="pl-panel-top"></div>
-  <div class="pl-panel-bot"></div>
+  <div class="loader-bg"></div>
   <div class="loader-logo" style="position:relative;z-index:2">
     <span class="loader-letter">B</span>
     <span class="loader-letter">L</span>
