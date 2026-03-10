@@ -907,13 +907,14 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 <!-- SECTION DOT NAVIGATOR (데스크톱) -->
 <div class="sec-dots" id="secDots">
   <button class="sec-dot" data-target="hero" data-label="Home" aria-label="히어로"></button>
-  <button class="sec-dot" data-target="about" data-label="About" aria-label="소개"></button>
-  <button class="sec-dot" data-target="services" data-label="Services" aria-label="시술"></button>
   <button class="sec-dot" data-target="gallery" data-label="Gallery" aria-label="갤러리"></button>
-  <button class="sec-dot" data-target="reviews" data-label="Reviews" aria-label="후기"></button>
+  <button class="sec-dot" data-target="about" data-label="About" aria-label="소개"></button>
   <button class="sec-dot" data-target="artists" data-label="Artists" aria-label="아티스트"></button>
-  <button class="sec-dot" data-target="faq" data-label="FAQ" aria-label="FAQ"></button>
+  <button class="sec-dot" data-target="services" data-label="Services" aria-label="시술"></button>
+  <button class="sec-dot" data-target="process" data-label="Process" aria-label="프로세스"></button>
+  <button class="sec-dot" data-target="reviews" data-label="Reviews" aria-label="후기"></button>
   <button class="sec-dot" data-target="care" data-label="Care" aria-label="홈케어"></button>
+  <button class="sec-dot" data-target="faq" data-label="FAQ" aria-label="FAQ"></button>
   <button class="sec-dot" data-target="info" data-label="Visit" aria-label="오시는길"></button>
 </div>
 
@@ -926,14 +927,14 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
-  <a class="mob-link" href="#about" data-close data-en="About">소개</a>
-  <a class="mob-link" href="#services" data-close data-en="Services">시술</a>
   <a class="mob-link" href="#gallery" data-close data-en="Gallery">갤러리</a>
-  <a class="mob-link" href="#reviews" data-close data-en="Reviews">후기</a>
+  <a class="mob-link" href="#about" data-close data-en="About">소개</a>
   <a class="mob-link" href="#artists" data-close data-en="Artists">아티스트</a>
-  <a class="mob-link" href="#info" data-close data-en="Visit">오시는 길</a>
-  <a class="mob-link" href="#faq" data-close data-en="FAQ">FAQ</a>
+  <a class="mob-link" href="#services" data-close data-en="Services">시술</a>
+  <a class="mob-link" href="#reviews" data-close data-en="Reviews">후기</a>
   <a class="mob-link" href="#care" data-close data-en="Care">홈케어</a>
+  <a class="mob-link" href="#faq" data-close data-en="FAQ">FAQ</a>
+  <a class="mob-link" href="#info" data-close data-en="Visit">오시는 길</a>
   <a class="mob-cta" href="https://pf.kakao.com/_zAqqX_blanc" target="_blank" rel="noopener noreferrer">예약하기</a>
 </div>
 
@@ -941,11 +942,11 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 <nav id="nav">
   <a class="nav-logo" href="#"><span>B</span>LANC</a>
   <div class="nav-right">
-    <a class="nav-link" href="#about">About</a>
-    <a class="nav-link" href="#services">Services</a>
     <a class="nav-link" href="#gallery">Gallery</a>
-    <a class="nav-link" href="#reviews">Reviews</a>
+    <a class="nav-link" href="#about">About</a>
     <a class="nav-link" href="#artists">Artists</a>
+    <a class="nav-link" href="#services">Services</a>
+    <a class="nav-link" href="#reviews">Reviews</a>
     <a class="nav-link" href="#info">Visit</a>
     <a class="nav-cta" href="https://pf.kakao.com/_zAqqX_blanc" target="_blank" rel="noopener noreferrer"><span>예약</span></a>
   </div>
@@ -975,6 +976,50 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   <div class="hero-side-left">EST. 2020 · CHEONGDAM</div>
   <div class="hero-side-right">BLANC NAIL ATELIER</div>
 </section>
+
+<!-- GALLERY — 듀얼 로우 시네마 스크롤 -->
+<!-- 유지보수: gal-item을 row-1 또는 row-2에 추가/삭제하기만 하면 됨 -->
+<section class="gallery rv" id="gallery">
+  <div class="gal-header">
+    <div class="sec-divider" style="background:linear-gradient(90deg,var(--rose-light),transparent)"></div>
+    <div class="sec-label">Gallery</div>
+    <h2 class="sec-title">작업 갤러리</h2>
+    <div class="gal-count">Selected Works — 10 Pieces</div>
+  </div>
+  <div class="gal-rows">
+    <!-- ROW 1: 왼쪽으로 스크롤 (콘텐츠 2배 복제하여 무한 루프) -->
+    <div class="gal-row gal-row-1" id="galRow1">
+      <div class="gal-item gal-item-wide g1" data-cap="프렌치 네일"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">프렌치 네일</span><span class="gal-sub">French Classic</span></div></div><span class="gal-num">01</span></div>
+      <div class="gal-item gal-item-sq g2" data-cap="글리터"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">글리터</span><span class="gal-sub">Glitter Art</span></div></div><span class="gal-num">02</span></div>
+      <div class="gal-item gal-item-tall g3" data-cap="미러 크롬"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">미러 크롬</span><span class="gal-sub">Chrome Mirror</span></div></div><span class="gal-num">03</span></div>
+      <div class="gal-item gal-item-wide g4" data-cap="플라워"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">플라워</span><span class="gal-sub">Floral Art</span></div></div><span class="gal-num">04</span></div>
+      <div class="gal-item gal-item-sq g5" data-cap="마블"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">마블</span><span class="gal-sub">Marble Gel</span></div></div><span class="gal-num">05</span></div>
+      <!-- 무한루프용 복제 (JS에서 자동 생성) -->
+    </div>
+    <!-- ROW 2: 오른쪽으로 스크롤 (반대 방향) -->
+    <div class="gal-row gal-row-2" id="galRow2">
+      <div class="gal-item gal-item-sq g6" data-cap="원컬러"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">원컬러</span><span class="gal-sub">One Color</span></div></div><span class="gal-num">06</span></div>
+      <div class="gal-item gal-item-wide g7" data-cap="핸드 케어"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">핸드 케어</span><span class="gal-sub">Hand Care</span></div></div><span class="gal-num">07</span></div>
+      <div class="gal-item gal-item-tall g8" data-cap="시즌 아트"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">시즌 아트</span><span class="gal-sub">Seasonal</span></div></div><span class="gal-num">08</span></div>
+      <div class="gal-item gal-item-sq g9" data-cap="그라데이션"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">그라데이션</span><span class="gal-sub">Gradient</span></div></div><span class="gal-num">09</span></div>
+      <div class="gal-item gal-item-wide g10" data-cap="캐릭터 아트"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">캐릭터 아트</span><span class="gal-sub">Character</span></div></div><span class="gal-num">10</span></div>
+    </div>
+  </div>
+  <div class="gal-cta-wrap rv">
+    <a href="https://instagram.com/blanc.nail" class="gal-cta" target="_blank" rel="noopener noreferrer">더 많은 작업물 보기 →</a>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="이미지 뷰어">
+  <div class="lb-bg" id="lbBg"></div>
+  <span class="lb-counter" id="lbCounter"></span>
+  <button class="lb-close" id="lbClose" aria-label="닫기">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="이전 이미지">&#8592;</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="다음 이미지">&#8594;</button>
+  <div class="lb-inner" id="lbInner"></div>
+  <span class="lb-caption" id="lbCap"></span>
+</div>
 
 <!-- MARQUEE DIVIDER -->
 <div class="marquee rv">
@@ -1010,10 +1055,34 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   </div>
 </section>
 
-<!-- PHOTO BAND 1 -->
-<div class="photo-band rv">
-<img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&q=80" alt="블랑 네일 시술" loading="lazy">
-</div>
+<!-- ARTISTS -->
+<section class="artists rv" id="artists">
+  <div class="artists-header">
+    <div class="sec-divider"></div>
+    <div class="sec-label">Artists</div>
+    <h2 class="sec-title">아티스트</h2>
+  </div>
+  <div class="art-grid">
+    <div class="art-card rv rv-d1" data-hover="Profile">
+      <div class="art-img"><div class="art-img-inner art-bg-1"></div>
+        <div class="art-overlay"><div class="art-overlay-text">"손톱 위에 그림을 그리는 것은<br>작은 캔버스에 마음을 담는 일이에요."</div></div>
+      </div>
+      <div class="art-info"><h3>정소윤</h3><div class="art-role">Head Artist · Founder</div><div class="art-tags"><span class="art-tag">핸드페인팅</span><span class="art-tag">프렌치</span><span class="art-tag">12년</span></div></div>
+    </div>
+    <div class="art-card rv rv-d2" data-hover="Profile">
+      <div class="art-img"><div class="art-img-inner art-bg-2"></div>
+        <div class="art-overlay"><div class="art-overlay-text">"트렌드를 해석하되<br>고객님만의 개성을 살리는 게 목표예요."</div></div>
+      </div>
+      <div class="art-info"><h3>한예린</h3><div class="art-role">Senior Artist</div><div class="art-tags"><span class="art-tag">트렌디 아트</span><span class="art-tag">글리터</span><span class="art-tag">8년</span></div></div>
+    </div>
+    <div class="art-card rv rv-d3" data-hover="Profile">
+      <div class="art-img"><div class="art-img-inner art-bg-3"></div>
+        <div class="art-overlay"><div class="art-overlay-text">"깔끔한 원컬러도 기본기가 탄탄해야<br>오래 예쁘게 유지돼요."</div></div>
+      </div>
+      <div class="art-info"><h3>김다은</h3><div class="art-role">Junior Artist</div><div class="art-tags"><span class="art-tag">원컬러</span><span class="art-tag">케어</span><span class="art-tag">4년</span></div></div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section class="services rv" id="services">
@@ -1124,50 +1193,6 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   </div>
 </section>
 
-<!-- GALLERY — 듀얼 로우 시네마 스크롤 -->
-<!-- 유지보수: gal-item을 row-1 또는 row-2에 추가/삭제하기만 하면 됨 -->
-<section class="gallery rv" id="gallery">
-  <div class="gal-header">
-    <div class="sec-divider" style="background:linear-gradient(90deg,var(--rose-light),transparent)"></div>
-    <div class="sec-label">Gallery</div>
-    <h2 class="sec-title">작업 갤러리</h2>
-    <div class="gal-count">Selected Works — 10 Pieces</div>
-  </div>
-  <div class="gal-rows">
-    <!-- ROW 1: 왼쪽으로 스크롤 (콘텐츠 2배 복제하여 무한 루프) -->
-    <div class="gal-row gal-row-1" id="galRow1">
-      <div class="gal-item gal-item-wide g1" data-cap="프렌치 네일"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">프렌치 네일</span><span class="gal-sub">French Classic</span></div></div><span class="gal-num">01</span></div>
-      <div class="gal-item gal-item-sq g2" data-cap="글리터"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">글리터</span><span class="gal-sub">Glitter Art</span></div></div><span class="gal-num">02</span></div>
-      <div class="gal-item gal-item-tall g3" data-cap="미러 크롬"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">미러 크롬</span><span class="gal-sub">Chrome Mirror</span></div></div><span class="gal-num">03</span></div>
-      <div class="gal-item gal-item-wide g4" data-cap="플라워"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">플라워</span><span class="gal-sub">Floral Art</span></div></div><span class="gal-num">04</span></div>
-      <div class="gal-item gal-item-sq g5" data-cap="마블"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">마블</span><span class="gal-sub">Marble Gel</span></div></div><span class="gal-num">05</span></div>
-      <!-- 무한루프용 복제 (JS에서 자동 생성) -->
-    </div>
-    <!-- ROW 2: 오른쪽으로 스크롤 (반대 방향) -->
-    <div class="gal-row gal-row-2" id="galRow2">
-      <div class="gal-item gal-item-sq g6" data-cap="원컬러"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">원컬러</span><span class="gal-sub">One Color</span></div></div><span class="gal-num">06</span></div>
-      <div class="gal-item gal-item-wide g7" data-cap="핸드 케어"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">핸드 케어</span><span class="gal-sub">Hand Care</span></div></div><span class="gal-num">07</span></div>
-      <div class="gal-item gal-item-tall g8" data-cap="시즌 아트"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">시즌 아트</span><span class="gal-sub">Seasonal</span></div></div><span class="gal-num">08</span></div>
-      <div class="gal-item gal-item-sq g9" data-cap="그라데이션"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">그라데이션</span><span class="gal-sub">Gradient</span></div></div><span class="gal-num">09</span></div>
-      <div class="gal-item gal-item-wide g10" data-cap="캐릭터 아트"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">캐릭터 아트</span><span class="gal-sub">Character</span></div></div><span class="gal-num">10</span></div>
-    </div>
-  </div>
-  <div class="gal-cta-wrap rv">
-    <a href="https://instagram.com/blanc.nail" class="gal-cta" target="_blank" rel="noopener noreferrer">더 많은 작업물 보기 →</a>
-  </div>
-</section>
-
-<!-- LIGHTBOX -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="이미지 뷰어">
-  <div class="lb-bg" id="lbBg"></div>
-  <span class="lb-counter" id="lbCounter"></span>
-  <button class="lb-close" id="lbClose" aria-label="닫기">&times;</button>
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="이전 이미지">&#8592;</button>
-  <button class="lb-nav lb-next" id="lbNext" aria-label="다음 이미지">&#8594;</button>
-  <div class="lb-inner" id="lbInner"></div>
-  <span class="lb-caption" id="lbCap"></span>
-</div>
-
 <!-- PROCESS -->
 <section class="process rv" id="process">
   <div class="process-header">
@@ -1246,39 +1271,17 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   </div>
 </section>
 
-<!-- ARTISTS -->
-<section class="artists rv" id="artists">
-  <div class="artists-header">
-    <div class="sec-divider"></div>
-    <div class="sec-label">Artists</div>
-    <h2 class="sec-title">아티스트</h2>
-  </div>
-  <div class="art-grid">
-    <div class="art-card rv rv-d1" data-hover="Profile">
-      <div class="art-img"><div class="art-img-inner art-bg-1"></div>
-        <div class="art-overlay"><div class="art-overlay-text">"손톱 위에 그림을 그리는 것은<br>작은 캔버스에 마음을 담는 일이에요."</div></div>
-      </div>
-      <div class="art-info"><h3>정소윤</h3><div class="art-role">Head Artist · Founder</div><div class="art-tags"><span class="art-tag">핸드페인팅</span><span class="art-tag">프렌치</span><span class="art-tag">12년</span></div></div>
-    </div>
-    <div class="art-card rv rv-d2" data-hover="Profile">
-      <div class="art-img"><div class="art-img-inner art-bg-2"></div>
-        <div class="art-overlay"><div class="art-overlay-text">"트렌드를 해석하되<br>고객님만의 개성을 살리는 게 목표예요."</div></div>
-      </div>
-      <div class="art-info"><h3>한예린</h3><div class="art-role">Senior Artist</div><div class="art-tags"><span class="art-tag">트렌디 아트</span><span class="art-tag">글리터</span><span class="art-tag">8년</span></div></div>
-    </div>
-    <div class="art-card rv rv-d3" data-hover="Profile">
-      <div class="art-img"><div class="art-img-inner art-bg-3"></div>
-        <div class="art-overlay"><div class="art-overlay-text">"깔끔한 원컬러도 기본기가 탄탄해야<br>오래 예쁘게 유지돼요."</div></div>
-      </div>
-      <div class="art-info"><h3>김다은</h3><div class="art-role">Junior Artist</div><div class="art-tags"><span class="art-tag">원컬러</span><span class="art-tag">케어</span><span class="art-tag">4년</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PHOTO BAND 2 -->
-<div class="photo-band rv">
-<img src="https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=1400&q=80" alt="네일 아트 디테일" loading="lazy">
+<!-- CARE GUIDE -->
+<section class="care" id="care">
+<p class="sec-label rv">Nail Care</p>
+<h2 class="sec-title rv rv-d1">홈케어 가이드</h2>
+<p class="sec-desc rv rv-d2">시술 후 올바른 관리가 네일의 수명을 결정합니다.</p>
+<div class="care-list">
+<div class="care-item rv"><div class="care-num">01</div><div class="care-content"><h3>젤 네일 관리</h3><p class="care-en">Gel Nail Care</p><p>시술 후 24시간은 뜨거운 물에 장시간 담그지 마세요. 젤이 완전히 경화되는 시간이 필요합니다. 설거지나 청소 시 고무장갑을 착용하면 지속 기간이 크게 늘어납니다.</p><div class="care-tip">Tip: 큐티클 오일을 매일 바르면 들뜸을 예방할 수 있어요.</div></div></div>
+<div class="care-item rv rv-d1"><div class="care-num">02</div><div class="care-content"><h3>네일 아트 보호</h3><p class="care-en">Art Protection</p><p>파츠나 스톤이 포함된 아트는 충격에 주의해 주세요. 물건을 잡거나 문을 열 때 손톱 끝이 아닌 손가락 패드를 사용하는 습관이 아트 수명을 늘려줍니다.</p><div class="care-tip">Tip: 탑코트를 주 1회 덧바르면 광택이 유지됩니다.</div></div></div>
+<div class="care-item rv rv-d2"><div class="care-num">03</div><div class="care-content"><h3>자연 손톱 강화</h3><p class="care-en">Natural Nail Care</p><p>젤 오프 후에는 영양제를 꾸준히 발라 주세요. 손톱이 얇아진 느낌이 들면 최소 2주 휴식 기간을 두고 케라틴 트리트먼트를 받으시는 것을 권장합니다.</p><div class="care-tip">Tip: 비오틴 영양제 복용도 손톱 건강에 도움이 됩니다.</div></div></div>
 </div>
+</section>
 
 <!-- INSTAGRAM CTA -->
 <section class="insta rv" id="insta">
@@ -1326,18 +1329,6 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
       <div class="faq-a"><div class="faq-a-inner">하루 6명 한정 완전 예약제로 운영되어 당일 예약은 어렵습니다. 최소 2~3일 전 예약을 권장드리며, 취소 발생 시 카카오톡으로 안내드립니다.</div></div>
     </div>
   </div>
-</section>
-
-<!-- CARE GUIDE -->
-<section class="care" id="care">
-<p class="sec-label rv">Nail Care</p>
-<h2 class="sec-title rv rv-d1">홈케어 가이드</h2>
-<p class="sec-desc rv rv-d2">시술 후 올바른 관리가 네일의 수명을 결정합니다.</p>
-<div class="care-list">
-<div class="care-item rv"><div class="care-num">01</div><div class="care-content"><h3>젤 네일 관리</h3><p class="care-en">Gel Nail Care</p><p>시술 후 24시간은 뜨거운 물에 장시간 담그지 마세요. 젤이 완전히 경화되는 시간이 필요합니다. 설거지나 청소 시 고무장갑을 착용하면 지속 기간이 크게 늘어납니다.</p><div class="care-tip">Tip: 큐티클 오일을 매일 바르면 들뜸을 예방할 수 있어요.</div></div></div>
-<div class="care-item rv rv-d1"><div class="care-num">02</div><div class="care-content"><h3>네일 아트 보호</h3><p class="care-en">Art Protection</p><p>파츠나 스톤이 포함된 아트는 충격에 주의해 주세요. 물건을 잡거나 문을 열 때 손톱 끝이 아닌 손가락 패드를 사용하는 습관이 아트 수명을 늘려줍니다.</p><div class="care-tip">Tip: 탑코트를 주 1회 덧바르면 광택이 유지됩니다.</div></div></div>
-<div class="care-item rv rv-d2"><div class="care-num">03</div><div class="care-content"><h3>자연 손톱 강화</h3><p class="care-en">Natural Nail Care</p><p>젤 오프 후에는 영양제를 꾸준히 발라 주세요. 손톱이 얇아진 느낌이 들면 최소 2주 휴식 기간을 두고 케라틴 트리트먼트를 받으시는 것을 권장합니다.</p><div class="care-tip">Tip: 비오틴 영양제 복용도 손톱 건강에 도움이 됩니다.</div></div></div>
-</div>
 </section>
 
 <!-- INFO + MAP -->
