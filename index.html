@@ -54,7 +54,7 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
-    "reviewCount": "4"
+    "reviewCount": "6"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -62,7 +62,10 @@
     "itemListElement": [
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "젤 네일"}, "price": "60000", "priceCurrency": "KRW"},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "네일 아트"}, "price": "80000", "priceCurrency": "KRW"},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "손·발 케어"}, "price": "40000", "priceCurrency": "KRW"}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "손·발 케어"}, "price": "40000", "priceCurrency": "KRW"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "페디큐어"}, "price": "70000", "priceCurrency": "KRW"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "웨딩 네일"}, "price": "120000", "priceCurrency": "KRW"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "멤버십 케어"}, "price": "45000", "priceCurrency": "KRW"}
     ]
   },
   "sameAs": ["https://instagram.com/blanc.nail"]
@@ -78,7 +81,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Sans+KR:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Sans+KR:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<style>.loader{display:none!important}.rv,.rv-left,.rv-right,.rv-scale{opacity:1!important;transform:none!important}.hero-title,.hero-overtitle,.hero-sub,.hero-cta-wrap,.hero-scroll{opacity:1!important;animation:none!important}.gal-row{animation:none!important}.marquee-inner{animation:none!important}</style>
+<style>.loader{display:none!important}.rv,.rv-left,.rv-right,.rv-scale{opacity:1!important;transform:none!important}.hero-title,.hero-overtitle,.hero-sub,.hero-cta-wrap,.hero-scroll{opacity:1!important;animation:none!important}.gal-row{animation:none!important}.marquee-inner{animation:none!important}.shimmer-text{background:none!important;-webkit-text-fill-color:var(--fg)!important}</style>
 </noscript>
 <style>
 /* ============================================================
@@ -163,7 +166,7 @@ a,button{cursor:none}
 /* ============================================================
    CSS CONTAIN — 렌더링 성능 최적화
    ============================================================ */
-.svc-card,.art-card,.gal-item,.rv-card,.proc-step{contain:layout style}
+.svc-card,.art-card,.gal-item,.rv-card,.proc-step,.prm-card,.pal-item,.sig-card,.fv-step{contain:layout style}
 section{contain:layout style paint}
 
 /* ============================================================
@@ -209,6 +212,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 .mob-menu.open .mob-link:nth-child(6){transition-delay:.33s}
 .mob-menu.open .mob-link:nth-child(7){transition-delay:.38s}
 .mob-menu.open .mob-link:nth-child(8){transition-delay:.43s}
+.mob-menu.open .mob-link:nth-child(9){transition-delay:.48s}
 .mob-cta{font-size:.68rem;padding:16px 40px;background:var(--fg);color:var(--bg);text-decoration:none;letter-spacing:.16em;text-transform:uppercase;margin-top:28px;opacity:0;transform:translateY(20px);transition:all .6s .4s var(--ease);font-weight:300}
 .mob-menu.open .mob-cta{opacity:1;transform:none}
 
@@ -601,12 +605,209 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 .rv-scale.show{opacity:1;transform:none}
 
 /* ============================================================
+   SHIMMER TEXT — 골드 시머 스윕 (블랑 시그니처)
+   섹션 타이틀이 뷰포트에 진입하면 로즈골드 빛이 스치는 효과
+   ============================================================ */
+.shimmer-text{
+  background:linear-gradient(120deg,var(--fg) 0%,var(--fg) 32%,var(--rose) 46%,var(--gold) 54%,var(--fg) 68%,var(--fg) 100%);
+  background-size:260% 100%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;background-position:100% 0}
+.shimmer-text.animate{animation:shimmerSweep 2.2s var(--ease) forwards}
+@keyframes shimmerSweep{to{background-position:0% 0}}
+
+/* ============================================================
+   GALLERY STATS
+   ============================================================ */
+.gal-stats{display:flex;gap:48px;padding:48px 48px 0;border-top:1px solid rgba(255,255,255,.06);max-width:1100px;margin:48px auto 0;flex-wrap:wrap}
+.gal-stat{text-align:center}
+.gal-stat-num{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;color:var(--bg);margin-bottom:4px}
+.gal-stat-num small{font-size:.5em;color:var(--dim);margin-left:2px}
+.gal-stat-label{font-family:var(--display);font-size:.4rem;color:var(--dim);letter-spacing:.2em;text-transform:uppercase;font-style:italic}
+
+/* ============================================================
+   REVIEW BADGE
+   ============================================================ */
+.rv-badge{display:inline-block;font-family:var(--display);font-size:.36rem;color:var(--rose);letter-spacing:.22em;text-transform:uppercase;padding:4px 14px;border:1px solid var(--rose-light);margin-bottom:18px;font-style:italic}
+
+/* ============================================================
+   CTA BANNER — 전환 유도 섹션
+   ============================================================ */
+.cta-banner{padding:140px 48px;background:var(--fg);color:var(--bg);text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(184,145,143,.08) 0%,transparent 70%);pointer-events:none}
+.cta-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--display);font-size:clamp(8rem,18vw,16rem);font-weight:300;color:rgba(255,255,255,.02);letter-spacing:.15em;pointer-events:none;white-space:nowrap}
+.cta-banner .sec-label{color:var(--dim)}
+.cta-banner .sec-title{color:var(--bg);margin-bottom:16px}
+.cta-banner .sec-title em{color:var(--rose-light);-webkit-text-fill-color:var(--rose-light)}
+.cta-banner .sec-desc{color:var(--dim);margin:0 auto 40px;text-align:center}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-fill{font-size:.56rem;padding:15px 38px;background:var(--bg);color:var(--fg);text-decoration:none;letter-spacing:.14em;text-transform:uppercase;font-weight:300;transition:all .5s var(--ease);position:relative;overflow:hidden}
+.cta-btn-fill::before{content:'';position:absolute;inset:0;background:var(--rose);transform:translateY(100%);transition:transform .5s var(--ease)}
+.cta-btn-fill span{position:relative;z-index:1;transition:color .5s var(--ease)}
+.cta-btn-fill:hover::before{transform:translateY(0)}
+.cta-btn-fill:hover span{color:var(--bg)}
+.cta-btn-out{font-size:.56rem;padding:15px 38px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.14em;text-transform:uppercase;font-weight:300;transition:all .5s var(--ease)}
+.cta-btn-out:hover{border-color:rgba(255,255,255,.4);color:var(--bg);transform:translateY(-2px)}
+.cta-banner .cta-trust{margin-top:40px}
+.cta-banner .cta-trust span{color:var(--dim)}
+
+/* ============================================================
+   BRAND PARTNERS — 사용 브랜드
+   ============================================================ */
+.brands{padding:60px 48px;text-align:center;border-top:1px solid var(--border)}
+.brands-title{font-family:var(--display);font-size:.42rem;color:var(--dim2);letter-spacing:.3em;text-transform:uppercase;font-style:italic;margin-bottom:28px;font-weight:300}
+.brands-row{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.brand-item{font-family:var(--display);font-size:clamp(.7rem,1.4vw,1rem);font-weight:300;color:var(--dim3);letter-spacing:.15em;text-transform:uppercase;transition:color .4s var(--ease);white-space:nowrap}
+.brand-item:hover{color:var(--rose)}
+.brand-dot{width:3px;height:3px;border-radius:50%;background:var(--dim3);flex-shrink:0}
+
+/* ============================================================
+   BRAND MARQUEE HOVER — 브랜드 로우 호버 시 연출
+   ============================================================ */
+.brands-row:hover .brand-item{opacity:.35;transition:opacity .3s var(--ease)}
+.brands-row:hover .brand-item:hover{opacity:1;color:var(--rose)}
+
+/* ============================================================
+   SIGNATURE WORKS — 에디토리얼 시그니처 쇼케이스
+   ============================================================ */
+.signature{padding:160px 48px;background:var(--bg2);position:relative;overflow:hidden}
+.signature::before{content:'SIGNATURE';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--display);font-size:clamp(4rem,12vw,10rem);font-weight:300;color:var(--bg3);letter-spacing:.2em;pointer-events:none;white-space:nowrap}
+.signature-header{max-width:1100px;margin:0 auto 64px;position:relative;z-index:1}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.sig-card{position:relative;overflow:hidden;transition:all .6s var(--ease)}
+.sig-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+.sig-card-main{grid-column:1/3;display:grid;grid-template-columns:1fr 1fr;min-height:400px}
+.sig-card-img{position:relative;overflow:hidden;min-height:320px}
+.sig-card-img-inner{width:100%;height:100%;transition:transform .8s var(--ease)}
+.sig-card:hover .sig-card-img-inner{transform:scale(1.04)}
+.sig-card-content{display:flex;flex-direction:column;justify-content:center;padding:48px;background:var(--white);border:1px solid var(--border)}
+.sig-card-num{font-family:var(--display);font-size:3rem;font-weight:300;color:var(--bg3);line-height:1;margin-bottom:20px;transition:color .5s var(--ease)}
+.sig-card:hover .sig-card-num{color:var(--rose-light)}
+.sig-card-content h3{font-family:var(--display);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:400;margin-bottom:4px;letter-spacing:.03em}
+.sig-card-en{font-family:var(--display);font-size:.44rem;color:var(--rose);letter-spacing:.2em;text-transform:uppercase;font-weight:300;font-style:italic;margin-bottom:16px}
+.sig-card-content p{font-size:.72rem;color:var(--dim);line-height:2.2;font-weight:200;margin-bottom:20px}
+.sig-card-tags{display:flex;gap:6px;flex-wrap:wrap}
+.sig-card-tag{font-size:.38rem;color:var(--dim2);padding:4px 10px;border:1px solid var(--border);letter-spacing:.08em;transition:border-color .3s;white-space:nowrap}
+.sig-card:hover .sig-card-tag{border-color:var(--border3)}
+.sig-card-sm{min-height:320px;display:grid;grid-template-columns:1fr;position:relative;border:1px solid var(--border);background:var(--white)}
+.sig-card-sm .sig-card-img{min-height:200px}
+.sig-card-sm .sig-card-content{padding:28px 24px}
+.sig-card-sm .sig-card-num{font-size:2.2rem;margin-bottom:14px}
+
+/* ============================================================
+   PROMISE — 신뢰 구축 섹션
+   ============================================================ */
+.promise{padding:120px 48px;background:var(--white);position:relative}
+.promise::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--border)}
+.promise-header{max-width:1100px;margin:0 auto 56px;text-align:center}
+.prm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.prm-card{text-align:center;padding:36px 20px;border:1px solid var(--border);transition:all .5s var(--ease);position:relative;overflow:hidden}
+.prm-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--gold));transform:scaleX(0);transition:transform .5s var(--ease)}
+.prm-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.prm-card:hover::after{transform:scaleX(1)}
+.prm-icon{font-size:1.6rem;margin-bottom:18px;opacity:.6;display:block;line-height:1}
+.prm-card h3{font-family:var(--display);font-size:.9rem;font-weight:400;margin-bottom:4px;letter-spacing:.03em}
+.prm-en{font-family:var(--display);font-size:.38rem;color:var(--rose);letter-spacing:.18em;text-transform:uppercase;font-weight:300;font-style:italic;margin-bottom:12px}
+.prm-card p{font-size:.66rem;color:var(--dim);line-height:2;font-weight:200}
+
+/* ============================================================
+   NAIL PALETTE — 인기 컬러 쇼케이스
+   ============================================================ */
+.palette{padding:120px 48px;background:var(--white);position:relative}
+.palette::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--border)}
+.palette-header{max-width:1100px;margin:0 auto 48px}
+.pal-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;max-width:900px;margin:0 auto}
+.pal-item{text-align:center;transition:transform .5s var(--ease)}
+.pal-item:hover{transform:translateY(-8px)}
+.pal-swatch{width:100%;aspect-ratio:1;border-radius:50%;margin-bottom:14px;box-shadow:var(--shadow-sm);transition:box-shadow .5s var(--ease);border:3px solid var(--white);outline:1px solid var(--border)}
+.pal-item:hover .pal-swatch{box-shadow:var(--shadow-lg)}
+.pal-name{font-family:var(--display);font-size:.68rem;font-weight:400;margin-bottom:2px;letter-spacing:.02em}
+.pal-code{font-family:var(--display);font-size:.38rem;color:var(--dim2);letter-spacing:.15em;font-style:italic;text-transform:uppercase}
+.pal-note{max-width:1100px;margin:36px auto 0;text-align:center;font-size:.66rem;color:var(--dim);font-weight:200;font-style:italic}
+
+/* ============================================================
+   FIRST VISIT — 첫 방문 안내
+   ============================================================ */
+.first-visit{padding:120px 48px;background:var(--bg);position:relative}
+.first-visit::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--border)}
+.first-visit-header{max-width:1100px;margin:0 auto 56px;text-align:center}
+.fv-timeline{max-width:800px;margin:0 auto;position:relative;padding-left:40px}
+.fv-timeline::before{content:'';position:absolute;top:0;bottom:0;left:15px;width:1px;background:linear-gradient(to bottom,var(--rose-light),var(--border),transparent)}
+.fv-step{position:relative;padding:0 0 48px 40px}
+.fv-step:last-child{padding-bottom:0}
+.fv-dot{position:absolute;left:-29px;top:4px;width:10px;height:10px;border-radius:50%;border:2px solid var(--rose-light);background:var(--bg);transition:all .4s var(--ease);z-index:1}
+.fv-step:hover .fv-dot{background:var(--rose);border-color:var(--rose);transform:scale(1.4)}
+.fv-step-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.fv-num{font-family:var(--display);font-size:.38rem;color:var(--rose);letter-spacing:.2em;text-transform:uppercase;font-style:italic;white-space:nowrap}
+.fv-step h3{font-family:var(--display);font-size:1rem;font-weight:400;letter-spacing:.03em}
+.fv-step p{font-size:.7rem;color:var(--dim);line-height:2.2;font-weight:200}
+.fv-highlight{display:inline-block;background:var(--rose-lighter);color:var(--rose-deep);padding:2px 10px;font-size:.6rem;border-radius:2px;margin-top:8px;font-weight:300;letter-spacing:.04em}
+
+/* ============================================================
+   FOOTER SOCIAL
+   ============================================================ */
+.ft-social{display:flex;gap:12px;margin-top:16px;justify-content:center}
+.ft-social a{width:36px;height:36px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--dim);text-decoration:none;transition:all .4s var(--ease);font-size:.7rem}
+.ft-social a:hover{border-color:var(--rose);color:var(--rose);transform:translateY(-3px)}
+.ft-social svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.2}
+
+/* ============================================================
+   SERVICE NOTICE — 시술 안내 공지
+   ============================================================ */
+.svc-notice{max-width:1100px;margin:0 auto 32px;padding:18px 28px;background:var(--bg2);border:1px solid var(--border);font-size:.68rem;color:var(--fg3);line-height:2;font-weight:200;display:flex;align-items:flex-start;gap:12px}
+.svc-notice-icon{flex-shrink:0;font-size:.8rem;opacity:.4;margin-top:2px}
+
+/* ============================================================
+   SEASONAL BADGE — 시즌 표시
+   ============================================================ */
+.seasonal-tag{display:inline-flex;align-items:center;gap:4px;font-family:var(--display);font-size:.34rem;color:var(--gold-dark);background:var(--gold-light);padding:3px 10px;letter-spacing:.12em;text-transform:uppercase;font-style:italic;border-radius:1px;white-space:nowrap}
+
+/* ============================================================
+   ENHANCED INFO DETAIL
+   ============================================================ */
+.info-detail{max-width:1100px;margin:32px auto 0;padding-top:32px;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.info-detail-item{text-align:center;padding:16px}
+.info-detail-icon{font-size:1.2rem;opacity:.35;margin-bottom:8px;display:block}
+.info-detail-item h4{font-family:var(--display);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;font-style:italic}
+.info-detail-item p{font-size:.64rem;color:var(--dim);line-height:1.8;font-weight:200}
+.info-detail-item:hover .info-detail-icon{opacity:.6;transform:translateY(-4px);transition:all .4s var(--ease)}
+
+/* ============================================================
+   BOOKING POLICY NOTE
+   ============================================================ */
+.booking-note{max-width:1100px;margin:32px auto 0;padding:20px 28px;border:1px solid var(--border);background:var(--bg2);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.booking-note-icon{font-family:var(--display);font-size:.44rem;color:var(--rose);letter-spacing:.2em;text-transform:uppercase;font-style:italic;white-space:nowrap;padding-top:2px}
+.booking-note p{font-size:.64rem;color:var(--dim);line-height:2;font-weight:200}
+.booking-note strong{color:var(--fg3);font-weight:400}
+
+/* ============================================================
+   GALLERY LIGHTBOX IMAGE DISPLAY ENHANCEMENT
+   ============================================================ */
+.lb-inner{background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* ============================================================
+   PERFORMANCE — will-change for frequently animated elements
+   ============================================================ */
+.hero-cta,.cta-btn-fill,.cta-btn-out,.nav-cta,.insta-btn{will-change:transform}
+.shimmer-text{will-change:background-position}
+.fv-dot{will-change:background,transform}
+.sig-card,.prm-card{will-change:transform,box-shadow}
+
+/* ============================================================
+   ADDITIONAL TEXT WRAPPING — long words in Korean
+   ============================================================ */
+.rv-quote,.about-quote,.about-body,.sig-card-content p,.prm-card p,.fv-step p,.care-content p,.faq-a-inner{
+  word-break:keep-all;overflow-wrap:break-word}
+
+/* ============================================================
    WIDESCREEN
    ============================================================ */
 @media(min-width:1500px){
-  .services,.reviews,.artists,.info-section,.process{
+  .services,.reviews,.artists,.info-section,.process,.palette,.promise,.faq,.first-visit{
     padding-left:calc((100vw - 1200px)/2);padding-right:calc((100vw - 1200px)/2)}
   .about{max-width:1200px}
+  .signature,.cta-banner{padding-left:calc((100vw - 1200px)/2);padding-right:calc((100vw - 1200px)/2)}
+  .svc-notice{max-width:1200px}
+  .sig-grid,.prm-grid,.pal-grid,.fv-timeline{max-width:1200px}
 }
 
 /* ============================================================
@@ -615,6 +816,8 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 @media(max-width:1024px){
   .about{grid-template-columns:1fr 1fr;gap:48px;padding:120px 36px}
   .about-accent,.about-accent-2{display:none}
+  .signature{padding:120px 36px}
+  .sig-grid{gap:16px}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .proc-timeline{grid-template-columns:repeat(2,1fr);gap:36px}
   .proc-timeline::before{display:none}
@@ -629,6 +832,12 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   .proc-step{padding:0 12px}
   .footer-inner{grid-template-columns:1fr 1fr}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .sig-card-main{grid-template-columns:1fr 1fr}
+  .sig-card-main .sig-card-content{padding:32px 28px}
+  .prm-grid{grid-template-columns:repeat(2,1fr)}
+  .pal-grid{grid-template-columns:repeat(3,1fr)}
+  .info-detail{grid-template-columns:repeat(3,1fr);gap:16px}
+  .first-visit{padding:100px 36px}
 }
 
 /* ============================================================
@@ -657,6 +866,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   .hero-cta-wrap{flex-direction:column;gap:10px}
   .hero-cta,.hero-cta-line{width:100%;max-width:260px;text-align:center}
   .hero-side-left,.hero-side-right{display:none}
+  .shimmer-text{background:none!important;-webkit-text-fill-color:var(--fg)!important}
   .marquee{padding:28px 0}
   .marquee-item{font-size:.65rem;padding:0 24px}
 
@@ -736,6 +946,40 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   .kakao-float{display:none}.mobile-bar{display:block}
   .mob-link::after{display:none}
   .scroll-progress{height:2px}
+  .signature{padding:80px 20px}
+  .sig-grid{grid-template-columns:1fr;gap:16px}
+  .sig-card-main{grid-column:auto;grid-template-columns:1fr}
+  .sig-card-main .sig-card-img{min-height:220px}
+  .sig-card-content{padding:28px 20px}
+  .sig-card-sm .sig-card-img{min-height:180px}
+  .promise{padding:60px 20px}
+  .prm-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .prm-card{padding:24px 16px}
+  .prm-icon{font-size:1.2rem;margin-bottom:12px}
+  .cta-banner{padding:80px 20px}
+  .cta-watermark{font-size:clamp(4rem,15vw,8rem)}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btn-fill,.cta-btn-out{width:100%;max-width:260px;text-align:center}
+  .cta-banner .cta-trust{flex-direction:column;gap:12px}
+  .first-visit{padding:60px 20px}
+  .fv-timeline{padding-left:28px}
+  .fv-step{padding-left:28px}
+  .fv-dot{left:-22px}
+  .fv-step p{font-size:.65rem}
+  .palette{padding:60px 20px}
+  .pal-grid{grid-template-columns:repeat(3,1fr);gap:16px;max-width:320px}
+  .pal-note{font-size:.6rem}
+  .gal-stats{gap:20px;padding:28px 20px 0}
+  .gal-stat-num{font-size:clamp(1.2rem,5vw,1.6rem)}
+  .brands{padding:36px 20px}
+  .brands-row{gap:20px}
+  .brand-item{font-size:.6rem}
+  .brand-dot{display:none}
+  .svc-notice{margin:0 20px 24px;padding:14px 16px;font-size:.62rem}
+  .info-detail{grid-template-columns:repeat(3,1fr);gap:12px;padding-top:24px;margin-top:24px}
+  .info-detail-item p{font-size:.58rem}
+  .booking-note{grid-template-columns:1fr;padding:16px 20px;margin:24px 0 0}
+  .booking-note p{font-size:.6rem}
 }
 
 /* Very Small (360px) */
@@ -745,6 +989,11 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   .stat-num{font-size:1.6rem}
   .stat-label{font-size:.38rem;letter-spacing:.1em}
   .svc-footer{flex-wrap:wrap;gap:8px}
+  .prm-grid{grid-template-columns:1fr}
+  .pal-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .sig-card-num{font-size:1.8rem}
+  .info-detail{grid-template-columns:1fr;gap:16px}
+  .ft-social{gap:8px}
 }
 
 /* ============================================================
@@ -772,6 +1021,19 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 [data-theme="dark"] .grain{opacity:.015}
 [data-theme="dark"] .hbg span{background:var(--fg)}
 [data-theme="dark"] .sec-curve svg path{fill:var(--bg)}
+[data-theme="dark"] .cta-banner{background:var(--fg)}
+[data-theme="dark"] .cta-btn-fill{background:var(--bg);color:var(--fg)}
+[data-theme="dark"] .shimmer-text{background:linear-gradient(120deg,var(--fg) 0%,var(--fg) 32%,var(--rose) 46%,var(--gold) 54%,var(--fg) 68%,var(--fg) 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-position:100% 0}
+[data-theme="dark"] .pal-swatch{border-color:var(--bg3);outline-color:var(--border2)}
+[data-theme="dark"] .signature::before{color:var(--bg3)}
+[data-theme="dark"] .sig-card-content{background:var(--bg3);border-color:var(--border)}
+[data-theme="dark"] .sig-card-sm{background:var(--bg3);border-color:var(--border)}
+[data-theme="dark"] .prm-card{border-color:var(--border)}
+[data-theme="dark"] .brand-item{color:var(--dim)}
+[data-theme="dark"] .booking-note{background:var(--bg3);border-color:var(--border)}
+[data-theme="dark"] .svc-notice{background:var(--bg3);border-color:var(--border)}
+[data-theme="dark"] .fv-dot{background:var(--bg)}
+[data-theme="dark"] .gal-stats{border-top-color:rgba(255,255,255,.04)}
 
 /* Dark mode toggle button */
 .theme-toggle{width:34px;height:34px;border-radius:50%;border:1px solid var(--border2);background:none;display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease);font-size:.7rem;line-height:1;opacity:.5;flex-shrink:0}
@@ -792,9 +1054,9 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
    MOBILE ACTIVE / TAP STATES
    ============================================================ */
 @media(hover:none){
-  .hero-cta:active,.hero-cta-line:active,.nav-cta:active,.btn-line:active,.btn-fill:active,.insta-btn:active,.gal-cta:active,.mob-cta:active,.mob-link:active{
+  .hero-cta:active,.hero-cta-line:active,.nav-cta:active,.btn-line:active,.btn-fill:active,.insta-btn:active,.gal-cta:active,.mob-cta:active,.mob-link:active,.cta-btn-fill:active,.cta-btn-out:active{
     transform:scale(.96)!important;opacity:.85;transition:all .1s}
-  .svc-card:active{transform:scale(.98)!important;transition:all .15s}
+  .svc-card:active,.prm-card:active,.sig-card:active,.pal-item:active{transform:scale(.98)!important;transition:all .15s}
   .rv-arrow:active,.rv-dot:active,.faq-q:active,.lb-close:active,.lb-nav:active,.back-top:active{
     transform:scale(.9)!important;transition:all .1s}
 }
@@ -819,6 +1081,11 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 /* Skip to content (hidden, keyboard only) */
 .skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:12px 24px;z-index:99999;font-size:.7rem;letter-spacing:.1em;text-decoration:none;transition:top .3s}
 .skip-link:focus{top:12px}
+/* Enhanced focus for CTA buttons */
+.cta-btn-fill:focus-visible,.cta-btn-out:focus-visible{outline-color:var(--rose-light);outline-offset:4px}
+.sig-card:focus-within{outline:2px solid var(--rose);outline-offset:3px}
+.prm-card:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.fv-step:focus-within .fv-dot{background:var(--rose);border-color:var(--rose)}
 
 /* ============================================================
    ACCESSIBILITY — Prefers Reduced Motion
@@ -832,6 +1099,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   .gal-row{animation:none!important}
   .scroll-line::after{animation:none!important}
   .rv,.rv-left,.rv-right,.rv-scale{opacity:1;transform:none}
+  .shimmer-text{animation:none!important;background:none!important;-webkit-text-fill-color:var(--fg)!important}
 }
 
 /* ============================================================
@@ -851,7 +1119,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
    ============================================================ */
 @media print{
   *{background:transparent!important;color:#000!important;box-shadow:none!important}
-  .loader,.grain,.scroll-progress,.cur,.cur-ring,.cur-label,.mob-menu,.kakao-float,.mobile-bar,.back-top,.hero-scroll,.hero-side-left,.hero-side-right,.hero-orb{display:none!important}
+  .loader,.grain,.scroll-progress,.cur,.cur-ring,.cur-label,.mob-menu,.kakao-float,.mobile-bar,.back-top,.hero-scroll,.hero-side-left,.hero-side-right,.hero-orb,.toast,.sec-dots{display:none!important}
   nav{position:static;padding:20px 0;background:none!important;backdrop-filter:none}
   .nav-cta,.hbg{display:none}
   .hero{height:auto;min-height:auto;padding:40px 0;page-break-after:avoid}
@@ -859,7 +1127,8 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   .hero-content{max-width:none;opacity:1!important;animation:none!important}
   .hero-title,.hero-overtitle,.hero-sub{opacity:1!important;animation:none!important}
   .rv,.rv-left,.rv-right,.rv-scale{opacity:1!important;transform:none!important}
-  .gallery{background:#333!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .gallery,.cta-banner{background:#333!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cta-watermark{display:none}
   .marquee{display:none}
   a[href]::after{content:" (" attr(href) ")";font-size:.6rem;color:#666}
   .nav-logo::after,.hero-cta::after,.hero-cta-line::after,.insta-btn::after,.btn-line::after,.btn-fill::after{content:none}
@@ -913,7 +1182,9 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   <button class="sec-dot" data-target="about" data-label="About" aria-label="소개"></button>
   <button class="sec-dot" data-target="artists" data-label="Artists" aria-label="아티스트"></button>
   <button class="sec-dot" data-target="services" data-label="Services" aria-label="시술"></button>
+  <button class="sec-dot" data-target="palette" data-label="Colors" aria-label="인기컬러"></button>
   <button class="sec-dot" data-target="process" data-label="Process" aria-label="프로세스"></button>
+  <button class="sec-dot" data-target="first-visit" data-label="First Visit" aria-label="첫방문"></button>
   <button class="sec-dot" data-target="reviews" data-label="Reviews" aria-label="후기"></button>
   <button class="sec-dot" data-target="care" data-label="Care" aria-label="홈케어"></button>
   <button class="sec-dot" data-target="faq" data-label="FAQ" aria-label="FAQ"></button>
@@ -933,6 +1204,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   <a class="mob-link" href="#about" data-close data-en="About">소개</a>
   <a class="mob-link" href="#artists" data-close data-en="Artists">아티스트</a>
   <a class="mob-link" href="#services" data-close data-en="Services">시술</a>
+  <a class="mob-link" href="#signature" data-close data-en="Signature">시그니처</a>
   <a class="mob-link" href="#reviews" data-close data-en="Reviews">후기</a>
   <a class="mob-link" href="#care" data-close data-en="Care">홈케어</a>
   <a class="mob-link" href="#faq" data-close data-en="FAQ">FAQ</a>
@@ -948,6 +1220,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
     <a class="nav-link" href="#about">About</a>
     <a class="nav-link" href="#artists">Artists</a>
     <a class="nav-link" href="#services">Services</a>
+    <a class="nav-link" href="#signature">Signature</a>
     <a class="nav-link" href="#reviews">Reviews</a>
     <a class="nav-link" href="#info">Visit</a>
     <a class="nav-cta" href="https://pf.kakao.com/_zAqqX_blanc" target="_blank" rel="noopener noreferrer"><span>예약</span></a>
@@ -986,7 +1259,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   <div class="gal-header">
     <div class="sec-divider" style="background:linear-gradient(90deg,var(--rose-light),transparent)"></div>
     <div class="sec-label">Gallery</div>
-    <h2 class="sec-title">작업 갤러리</h2>
+    <h2 class="sec-title shimmer-text">작업 갤러리</h2>
     <div class="gal-count">Selected Works — 10 Pieces</div>
   </div>
   <div class="gal-rows">
@@ -1007,6 +1280,12 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
       <div class="gal-item gal-item-sq g9" data-cap="그라데이션"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">그라데이션</span><span class="gal-sub">Gradient</span></div></div><span class="gal-num">09</span></div>
       <div class="gal-item gal-item-wide g10" data-cap="캐릭터 아트"><div class="g-inner"></div><div class="gal-overlay"><div><span class="gal-cap">캐릭터 아트</span><span class="gal-sub">Character</span></div></div><span class="gal-num">10</span></div>
     </div>
+  </div>
+  <div class="gal-stats rv">
+    <div class="gal-stat"><div class="gal-stat-num" data-count="1200">0</div><div class="gal-stat-label">Completed +</div></div>
+    <div class="gal-stat"><div class="gal-stat-num" data-count="8">0</div><div class="gal-stat-label">Brands</div></div>
+    <div class="gal-stat"><div class="gal-stat-num">5.0</div><div class="gal-stat-label">Rating</div></div>
+    <div class="gal-stat"><div class="gal-stat-num" data-count="92">0</div><div class="gal-stat-label">재방문율 %</div></div>
   </div>
   <div class="gal-cta-wrap rv">
     <a href="https://instagram.com/blanc.nail" class="gal-cta" target="_blank" rel="noopener noreferrer">더 많은 작업물 보기 →</a>
@@ -1050,6 +1329,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
     <div class="sec-label">About Us</div>
     <p class="about-quote">유행을 쫓기보다<br><em>당신다운 아름다움</em>을<br>찾아드립니다.</p>
     <p class="about-body">네일은 단순한 꾸밈이 아니라, 매일 눈에 들어오는 작은 예술이니까요. 블랑은 2020년 청담동에서 시작했습니다. 하루 6명으로 예약을 제한하고, 한 분에게 최소 90분의 시간을 드립니다.</p>
+    <p class="about-body" style="margin-top:12px">서두르지 않는 시술, 검증된 프리미엄 제품, 그리고 사후 케어까지. 한 번의 방문이 오래 기억될 수 있도록, 처음부터 끝까지 정성을 다합니다.</p>
     <div class="about-stats rv rv-d2">
       <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">하루 예약</span></div>
       <div class="stat"><span class="stat-num" data-count="90">0</span><span class="stat-label">최소 시술 (min)</span></div>
@@ -1058,12 +1338,17 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   </div>
 </section>
 
+<!-- PHOTO BAND 1 -->
+<div class="photo-band rv">
+  <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1400&q=80" alt="블랑 네일 시술" loading="lazy">
+</div>
+
 <!-- ARTISTS -->
 <section class="artists rv" id="artists">
   <div class="artists-header">
     <div class="sec-divider"></div>
     <div class="sec-label">Artists</div>
-    <h2 class="sec-title">아티스트</h2>
+    <h2 class="sec-title shimmer-text">아티스트</h2>
   </div>
   <div class="art-grid">
     <div class="art-card rv rv-d1" data-hover="Profile">
@@ -1093,8 +1378,12 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
     <div class="services-header-left">
       <div class="sec-divider"></div>
       <div class="sec-label">Services</div>
-      <h2 class="sec-title">시술 안내</h2>
+      <h2 class="sec-title shimmer-text">시술 안내</h2>
     </div>
+  </div>
+  <div class="svc-notice rv rv-d2">
+    <span class="svc-notice-icon">ℹ</span>
+    <span>모든 시술에는 기본 손질·큐티클 케어가 포함되어 있습니다. 정확한 가격은 디자인 난이도와 상담 후 안내해 드립니다. <span class="seasonal-tag">2026 S/S</span></span>
   </div>
   <div class="svc-grid">
     <div class="svc-card rv rv-d1" data-hover="Detail">
@@ -1196,6 +1485,132 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
   </div>
 </section>
 
+<!-- BRANDS WE USE -->
+<div class="brands rv">
+  <div class="brands-title">Trusted by the Best Brands</div>
+  <div class="brands-row">
+    <span class="brand-item">OPI</span>
+    <span class="brand-dot"></span>
+    <span class="brand-item">Vetro</span>
+    <span class="brand-dot"></span>
+    <span class="brand-item">Leafgel</span>
+    <span class="brand-dot"></span>
+    <span class="brand-item">Presto</span>
+    <span class="brand-dot"></span>
+    <span class="brand-item">Gelish</span>
+    <span class="brand-dot"></span>
+    <span class="brand-item">Bio Sculpture</span>
+  </div>
+</div>
+
+<!-- SIGNATURE WORKS — 시그니처 작업 에디토리얼 -->
+<section class="signature rv" id="signature" aria-label="시그니처 컬렉션">
+  <div class="signature-header">
+    <div class="sec-divider"></div>
+    <div class="sec-label">Signature Works</div>
+    <h2 class="sec-title shimmer-text">시그니처 컬렉션</h2>
+    <p class="sec-desc">블랑만의 감각으로 완성한 대표 디자인.</p>
+  </div>
+  <div class="sig-grid">
+    <div class="sig-card sig-card-main rv">
+      <div class="sig-card-img">
+        <div class="sig-card-img-inner" style="background:url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80') center/cover no-repeat" data-hover="View"></div>
+      </div>
+      <div class="sig-card-content">
+        <div class="sig-card-num">01</div>
+        <h3>오뜨 꾸뛰르</h3>
+        <div class="sig-card-en">Haute Couture Collection</div>
+        <p>패션 위크에서 영감을 받은 시즌 한정 컬렉션. 핸드페인팅과 스와로브스키 크리스탈을 조합한 블랑만의 대표 디자인입니다. 사전 상담을 통해 고객님의 스타일에 맞춤 디자인합니다.</p>
+        <div class="sig-card-tags">
+          <span class="sig-card-tag">핸드페인팅</span>
+          <span class="sig-card-tag">크리스탈</span>
+          <span class="sig-card-tag">시즌 한정</span>
+          <span class="sig-card-tag">150분</span>
+        </div>
+      </div>
+    </div>
+    <div class="sig-card sig-card-sm rv rv-d1">
+      <div class="sig-card-img">
+        <div class="sig-card-img-inner" style="background:url('https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&q=80') center/cover no-repeat" data-hover="View"></div>
+      </div>
+      <div class="sig-card-content">
+        <div class="sig-card-num">02</div>
+        <h3>미러 프렌치</h3>
+        <div class="sig-card-en">Mirror French</div>
+        <p>클래식 프렌치에 크롬 미러 파우더를 결합. 은은한 금속 광택이 손끝에서 빛나며, 어떤 의상과도 자연스럽게 어울리는 세련된 디자인입니다.</p>
+        <div class="sig-card-tags">
+          <span class="sig-card-tag">크롬</span>
+          <span class="sig-card-tag">프렌치</span>
+          <span class="sig-card-tag">120분</span>
+        </div>
+      </div>
+    </div>
+    <div class="sig-card sig-card-sm rv rv-d2">
+      <div class="sig-card-img">
+        <div class="sig-card-img-inner" style="background:url('https://images.unsplash.com/photo-1577900232427-18219b9166a0?w=800&q=80') center/cover no-repeat" data-hover="View"></div>
+      </div>
+      <div class="sig-card-content">
+        <div class="sig-card-num">03</div>
+        <h3>보태니컬 가든</h3>
+        <div class="sig-card-en">Botanical Garden</div>
+        <p>섬세한 붓터치로 그려내는 플로럴 아트. 계절마다 새로운 꽃을 손톱 위에 담아내며, 한 송이 한 송이 모두 핸드페인팅으로 완성합니다.</p>
+        <div class="sig-card-tags">
+          <span class="sig-card-tag">핸드페인팅</span>
+          <span class="sig-card-tag">플로럴</span>
+          <span class="sig-card-tag">120분</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAIL PALETTE — 인기 컬러 -->
+<section class="palette rv" id="palette" aria-label="인기 컬러">
+  <div class="palette-header">
+    <div class="sec-divider"></div>
+    <div class="sec-label">Popular Colors</div>
+    <h2 class="sec-title shimmer-text">이달의 인기 컬러</h2>
+  </div>
+  <div class="pal-grid">
+    <div class="pal-item rv rv-d1">
+      <div class="pal-swatch" style="background:#E8C4C0"></div>
+      <div class="pal-name">로제 누드</div>
+      <div class="pal-code">Rosé Nude</div>
+    </div>
+    <div class="pal-item rv rv-d2">
+      <div class="pal-swatch" style="background:#C5A97D"></div>
+      <div class="pal-name">샴페인 골드</div>
+      <div class="pal-code">Champagne Gold</div>
+    </div>
+    <div class="pal-item rv rv-d3">
+      <div class="pal-swatch" style="background:#8E6B69"></div>
+      <div class="pal-name">모브 브라운</div>
+      <div class="pal-code">Mauve Brown</div>
+    </div>
+    <div class="pal-item rv rv-d4">
+      <div class="pal-swatch" style="background:#F5EDE4"></div>
+      <div class="pal-name">밀키 크림</div>
+      <div class="pal-code">Milky Cream</div>
+    </div>
+    <div class="pal-item rv rv-d1">
+      <div class="pal-swatch" style="background:#A8B5A0"></div>
+      <div class="pal-name">세이지 민트</div>
+      <div class="pal-code">Sage Mint</div>
+    </div>
+    <div class="pal-item rv rv-d2">
+      <div class="pal-swatch" style="background:#B8918F"></div>
+      <div class="pal-name">블랑 로즈</div>
+      <div class="pal-code">Blanc Rosé</div>
+    </div>
+  </div>
+  <p class="pal-note rv">* 실제 컬러는 조명과 모니터에 따라 다를 수 있습니다. 방문 시 직접 확인해 주세요.</p>
+</section>
+
+<!-- PHOTO BAND 2 -->
+<div class="photo-band rv">
+  <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=1400&q=80" alt="블랑 네일 아트 디테일" loading="lazy">
+</div>
+
 <!-- PROCESS -->
 <section class="process rv" id="process">
   <div class="process-header">
@@ -1209,7 +1624,7 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
       <div class="proc-dot"></div>
       <h3>상담</h3>
       <div class="proc-en">Consultation</div>
-      <p>원하시는 디자인과 손톱 컨디션을 파악합니다. 참고 사진 가능.</p>
+      <p>원하시는 디자인과 손톱 컨디션을 파악합니다. 참고 사진이 있으시면 가져오시거나 사전에 카카오톡으로 보내주세요. 약 10분 소요.</p>
     </div>
     <div class="proc-step rv rv-d2">
       <div class="proc-num">Step 02</div>
@@ -1223,14 +1638,68 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
       <div class="proc-dot"></div>
       <h3>시술</h3>
       <div class="proc-en">Application</div>
-      <p>베이스 코트부터 디자인, 탑 코트까지 꼼꼼하게 시술합니다.</p>
+      <p>베이스 코트부터 디자인, 탑 코트까지. LED 경화와 함께 꼼꼼하게 시술합니다. 시술 중 불편하신 점은 편하게 말씀해 주세요.</p>
     </div>
     <div class="proc-step rv rv-d4">
       <div class="proc-num">Step 04</div>
       <div class="proc-dot"></div>
       <h3>마무리</h3>
       <div class="proc-en">Finishing</div>
-      <p>오일 도포 후 관리 방법 안내. 사후 케어까지 책임집니다.</p>
+      <p>오일 도포 후 관리 방법 안내. 시술 결과물 사진 촬영 후 카카오톡으로 전달해 드리며, 7일 이내 들뜸 발생 시 무상 보수합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST VISIT GUIDE — 첫 방문 안내 -->
+<section class="first-visit rv" id="first-visit" aria-label="첫 방문 안내">
+  <div class="first-visit-header">
+    <div class="sec-divider" style="margin:0 auto 24px"></div>
+    <div class="sec-label">First Visit</div>
+    <h2 class="sec-title shimmer-text">처음 오시나요?</h2>
+    <p class="sec-desc" style="margin:12px auto 0;text-align:center">블랑에서의 첫 시술, 이렇게 준비하시면 됩니다.</p>
+  </div>
+  <div class="fv-timeline">
+    <div class="fv-step rv">
+      <div class="fv-dot"></div>
+      <div class="fv-step-head">
+        <span class="fv-num">Step 01</span>
+        <h3>카카오톡으로 예약</h3>
+      </div>
+      <p>@blanc.nail 채널에서 원하시는 날짜, 시간, 시술 종류를 알려주세요. 참고 디자인 사진이 있다면 함께 보내주시면 더 정확한 상담이 가능합니다.</p>
+      <span class="fv-highlight">최소 2~3일 전 예약 권장</span>
+    </div>
+    <div class="fv-step rv rv-d1">
+      <div class="fv-dot"></div>
+      <div class="fv-step-head">
+        <span class="fv-num">Step 02</span>
+        <h3>방문 전 준비</h3>
+      </div>
+      <p>기존 네일이 있다면 제거하고 오시면 시술 시간이 단축됩니다. 제거가 어려우시면 30분 일찍 도착해 주세요. 손에 핸드크림은 바르지 않고 오시면 됩니다.</p>
+    </div>
+    <div class="fv-step rv rv-d2">
+      <div class="fv-dot"></div>
+      <div class="fv-step-head">
+        <span class="fv-num">Step 03</span>
+        <h3>상담 · 디자인 결정</h3>
+      </div>
+      <p>아티스트가 손톱 상태를 확인하고 원하시는 디자인을 함께 상의합니다. 샘플북과 실물 컬러칩을 보시며 결정하시면 됩니다. 약 10분 소요.</p>
+    </div>
+    <div class="fv-step rv rv-d3">
+      <div class="fv-dot"></div>
+      <div class="fv-step-head">
+        <span class="fv-num">Step 04</span>
+        <h3>시술 · 마무리</h3>
+      </div>
+      <p>시술 후 오일 도포와 함께 홈케어 가이드를 안내드립니다. 시술 결과가 마음에 들지 않으시면 현장에서 바로 수정 가능합니다.</p>
+      <span class="fv-highlight">7일 이내 들뜸 무상 보수</span>
+    </div>
+    <div class="fv-step rv rv-d4">
+      <div class="fv-dot"></div>
+      <div class="fv-step-head">
+        <span class="fv-num">After</span>
+        <h3>사후 관리</h3>
+      </div>
+      <p>시술 후 카카오톡으로 완성 사진을 보내드립니다. 궁금하신 점이나 유지 관리에 대한 문의는 언제든 편하게 연락해 주세요. 다음 시술 적정 시기도 안내드립니다.</p>
     </div>
   </div>
 </section>
@@ -1246,23 +1715,39 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
     <div class="rv-track" id="rvTrack">
       <div class="rv-card">
         <div class="rv-stars">★ ★ ★ ★ ★</div>
+        <span class="rv-badge">Gel Nail</span>
         <p class="rv-quote">손톱이 약해서 걱정했는데 케어까지 꼼꼼하게 해주셔서 감동이에요. 디자인도 딱 제 취향으로 해주셨어요.</p>
         <div class="rv-author-wrap"><div class="rv-avatar">김</div><div class="rv-author-info"><span class="rv-author">김** 님</span><span class="rv-source">네이버 플레이스</span></div></div>
       </div>
       <div class="rv-card">
         <div class="rv-stars">★ ★ ★ ★ ★</div>
+        <span class="rv-badge">Nail Art</span>
         <p class="rv-quote">분위기가 정말 좋고, 시술하는 동안 편안했어요. 다른 곳에서는 못 받았던 섬세한 아트가 가능해서 대만족입니다.</p>
         <div class="rv-author-wrap"><div class="rv-avatar">이</div><div class="rv-author-info"><span class="rv-author">이** 님</span><span class="rv-source">카카오맵</span></div></div>
       </div>
       <div class="rv-card">
         <div class="rv-stars">★ ★ ★ ★ ★</div>
+        <span class="rv-badge">French</span>
         <p class="rv-quote">매번 인스타에서 예쁜 네일 보고 왔는데, 실물이 더 예뻐요. 오래 가는 것도 좋고 관리법도 알려주셔서 좋았습니다.</p>
         <div class="rv-author-wrap"><div class="rv-avatar">박</div><div class="rv-author-info"><span class="rv-author">박** 님</span><span class="rv-source">Google</span></div></div>
       </div>
       <div class="rv-card">
         <div class="rv-stars">★ ★ ★ ★ ★</div>
+        <span class="rv-badge">Hand Care</span>
         <p class="rv-quote">청담동 네일샵 여러 군데 다녀봤는데 여기가 가장 꼼꼼하고 오래 유지돼요. 이제 완전 단골입니다.</p>
         <div class="rv-author-wrap"><div class="rv-avatar">최</div><div class="rv-author-info"><span class="rv-author">최** 님</span><span class="rv-source">네이버 플레이스</span></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★ ★ ★ ★ ★</div>
+        <span class="rv-badge">Bridal</span>
+        <p class="rv-quote">웨딩 네일 블랑에서 했는데 정말 최고였어요. 사전 상담도 꼼꼼하고, 당일에 딱 원하는 대로 나왔습니다. 하객들도 너무 예쁘다고 난리였어요!</p>
+        <div class="rv-author-wrap"><div class="rv-avatar">정</div><div class="rv-author-info"><span class="rv-author">정** 님</span><span class="rv-source">Google</span></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★ ★ ★ ★ ★</div>
+        <span class="rv-badge">Pedicure</span>
+        <p class="rv-quote">풋배스부터 시작해서 각질 관리, 젤 페디까지 완벽했어요. 발이 이렇게 예뻐질 수 있다니! 여름에 꼭 다시 올게요. 무엇보다 공간이 아늑하고 프라이빗해서 편안했습니다.</p>
+        <div class="rv-author-wrap"><div class="rv-avatar">윤</div><div class="rv-author-info"><span class="rv-author">윤** 님</span><span class="rv-source">카카오맵</span></div></div>
       </div>
     </div>
   </div>
@@ -1277,13 +1762,68 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 <!-- CARE GUIDE -->
 <section class="care" id="care">
 <p class="sec-label rv">Nail Care</p>
-<h2 class="sec-title rv rv-d1">홈케어 가이드</h2>
-<p class="sec-desc rv rv-d2">시술 후 올바른 관리가 네일의 수명을 결정합니다.</p>
+<h2 class="sec-title shimmer-text rv rv-d1">홈케어 가이드</h2>
+<p class="sec-desc rv rv-d2">시술 후 올바른 관리가 네일의 수명을 결정합니다. 간단한 습관만으로 2~3주 더 오래 유지할 수 있어요.</p>
 <div class="care-list">
 <div class="care-item rv"><div class="care-num">01</div><div class="care-content"><h3>젤 네일 관리</h3><p class="care-en">Gel Nail Care</p><p>시술 후 24시간은 뜨거운 물에 장시간 담그지 마세요. 젤이 완전히 경화되는 시간이 필요합니다. 설거지나 청소 시 고무장갑을 착용하면 지속 기간이 크게 늘어납니다.</p><div class="care-tip">Tip: 큐티클 오일을 매일 바르면 들뜸을 예방할 수 있어요.</div></div></div>
 <div class="care-item rv rv-d1"><div class="care-num">02</div><div class="care-content"><h3>네일 아트 보호</h3><p class="care-en">Art Protection</p><p>파츠나 스톤이 포함된 아트는 충격에 주의해 주세요. 물건을 잡거나 문을 열 때 손톱 끝이 아닌 손가락 패드를 사용하는 습관이 아트 수명을 늘려줍니다.</p><div class="care-tip">Tip: 탑코트를 주 1회 덧바르면 광택이 유지됩니다.</div></div></div>
 <div class="care-item rv rv-d2"><div class="care-num">03</div><div class="care-content"><h3>자연 손톱 강화</h3><p class="care-en">Natural Nail Care</p><p>젤 오프 후에는 영양제를 꾸준히 발라 주세요. 손톱이 얇아진 느낌이 들면 최소 2주 휴식 기간을 두고 케라틴 트리트먼트를 받으시는 것을 권장합니다.</p><div class="care-tip">Tip: 비오틴 영양제 복용도 손톱 건강에 도움이 됩니다.</div></div></div>
+<div class="care-item rv rv-d3"><div class="care-num">04</div><div class="care-content"><h3>발 관리</h3><p class="care-en">Foot Care</p><p>페디큐어 후에도 보습이 핵심입니다. 발 크림을 매일 바르고, 양말을 신고 주무시면 보습 효과가 배가 됩니다. 한 달에 한 번 각질 관리를 받으시면 항상 깨끗한 발을 유지할 수 있습니다.</p><div class="care-tip">Tip: 풋배스에 티트리 오일 몇 방울을 넣으면 항균 효과가 있어요.</div></div></div>
 </div>
+</section>
+
+<!-- OUR PROMISE — 신뢰 구축 -->
+<section class="promise rv" id="promise" aria-label="블랑의 약속">
+  <div class="promise-header">
+    <div class="sec-divider" style="margin:0 auto 24px"></div>
+    <div class="sec-label">Our Promise</div>
+    <h2 class="sec-title shimmer-text">블랑의 약속</h2>
+  </div>
+  <div class="prm-grid">
+    <div class="prm-card rv rv-d1" data-hover="Promise">
+      <span class="prm-icon">✦</span>
+      <h3>프리미엄 제품</h3>
+      <div class="prm-en">Premium Products</div>
+      <p>OPI, Vetro, Leafgel, Bio Sculpture 등 검증된 최고급 젤만을 사용합니다. 발색과 지속력이 다르며, 손톱 건강을 최우선으로 고려한 제품을 선별합니다.</p>
+    </div>
+    <div class="prm-card rv rv-d2" data-hover="Promise">
+      <span class="prm-icon">✦</span>
+      <h3>완전 예약제</h3>
+      <div class="prm-en">By Appointment Only</div>
+      <p>하루 6명 한정. 한 분에게 최소 90분의 시간을 드려 서두르지 않고 완성합니다.</p>
+    </div>
+    <div class="prm-card rv rv-d3" data-hover="Promise">
+      <span class="prm-icon">✦</span>
+      <h3>사후 케어</h3>
+      <div class="prm-en">Aftercare Support</div>
+      <p>시술 후 관리 방법 안내는 물론, 7일 이내 들뜸 발생 시 무상 보수합니다.</p>
+    </div>
+    <div class="prm-card rv rv-d4" data-hover="Promise">
+      <span class="prm-icon">✦</span>
+      <h3>위생 관리</h3>
+      <div class="prm-en">Hygiene First</div>
+      <p>모든 도구는 고객님마다 UV 소독기로 개별 소독합니다. 1회용 파일과 버퍼를 사용하며, 시술 전후 작업대 알코올 소독을 철저히 합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER — 전환 유도 -->
+<section class="cta-banner">
+  <span class="cta-watermark" aria-hidden="true">BLANC</span>
+  <div class="sec-divider rv" style="background:linear-gradient(90deg,var(--rose-light),transparent);margin:0 auto 24px"></div>
+  <div class="sec-label rv">Reservation</div>
+  <h2 class="sec-title rv rv-d1">손끝에 담긴 <em>작은 예술</em>을 경험하세요</h2>
+  <p class="sec-desc rv rv-d2">하루 6명 한정, 완전 예약제. 한 분 한 분에게 충분한 시간을 드립니다.</p>
+  <div class="cta-btns rv rv-d3">
+    <a href="https://pf.kakao.com/_zAqqX_blanc" class="cta-btn-fill" target="_blank" rel="noopener noreferrer" data-hover="Reserve"><span>온라인 예약</span></a>
+    <a href="tel:02-000-0000" class="cta-btn-out" data-hover="Call">전화 문의 →</a>
+  </div>
+  <div class="cta-trust rv rv-d4">
+    <span>★ 5.0</span>
+    <span>재방문율 92%</span>
+    <span>하루 6명 한정</span>
+    <span>경력 4년 이상</span>
+  </div>
 </section>
 
 <!-- INSTAGRAM CTA -->
@@ -1331,6 +1871,18 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
       <button class="faq-q"><span class="faq-q-label">Q5</span><span>당일 예약이 가능한가요?</span><span class="faq-q-icon"></span></button>
       <div class="faq-a"><div class="faq-a-inner">하루 6명 한정 완전 예약제로 운영되어 당일 예약은 어렵습니다. 최소 2~3일 전 예약을 권장드리며, 취소 발생 시 카카오톡으로 안내드립니다.</div></div>
     </div>
+    <div class="faq-item">
+      <button class="faq-q"><span class="faq-q-label">Q6</span><span>예약 변경이나 취소는 어떻게 하나요?</span><span class="faq-q-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">예약 변경 및 취소는 최소 하루 전까지 카카오톡으로 연락해 주세요. 당일 취소 시 다음 예약에 제한이 있을 수 있습니다. 30분 이상 지각 시 자동 취소됩니다.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span class="faq-q-label">Q7</span><span>디자인 참고 사진을 가져가도 되나요?</span><span class="faq-q-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">물론이요! 원하시는 디자인 참고 사진을 카카오톡으로 미리 보내주시거나, 방문 시 보여주시면 됩니다. 참고 사진을 토대로 손톱 길이와 형태에 맞게 맞춤 조정하여 시술해 드립니다.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span class="faq-q-label">Q8</span><span>젤 오프만 따로 가능한가요?</span><span class="faq-q-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">네, 젤 오프만 따로 진행 가능합니다. 다만 다른 샵에서 시술받으신 경우에도 손톱 손상을 최소화하는 방법으로 안전하게 제거해 드립니다. 오프 후 영양 트리트먼트를 함께 받으시면 손톱 회복에 도움이 됩니다.</div></div>
+    </div>
   </div>
 </section>
 
@@ -1368,6 +1920,27 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
       </div>
     </a>
   </div>
+  <div class="booking-note rv">
+    <span class="booking-note-icon">Notice</span>
+    <p><strong>예약 안내</strong> — 완전 예약제로 운영됩니다. 당일 예약은 불가하며, 최소 2~3일 전 카카오톡 예약을 권장합니다. 30분 이상 지각 시 자동 취소됩니다. 예약 변경 및 취소는 방문일 전날까지 연락 부탁드립니다.</p>
+  </div>
+  <div class="info-detail rv">
+    <div class="info-detail-item">
+      <span class="info-detail-icon">🚇</span>
+      <h4>Subway</h4>
+      <p>압구정로데오역 4번출구<br>도보 5분</p>
+    </div>
+    <div class="info-detail-item">
+      <span class="info-detail-icon">🚗</span>
+      <h4>Parking</h4>
+      <p>건물 내 지하주차장<br>시술 시간 무료 주차</p>
+    </div>
+    <div class="info-detail-item">
+      <span class="info-detail-icon">☕</span>
+      <h4>Amenities</h4>
+      <p>웰컴 음료 제공<br>프라이빗 시술 공간</p>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -1376,6 +1949,11 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 <div class="footer-brand">
 <div class="footer-logo">BLANC</div>
 <p class="footer-tagline">손끝에 담긴 작은 예술.</p>
+<div class="ft-social">
+  <a href="https://instagram.com/blanc.nail" target="_blank" rel="noopener noreferrer" aria-label="인스타그램"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+  <a href="https://pf.kakao.com/_zAqqX_blanc" target="_blank" rel="noopener noreferrer" aria-label="카카오톡"><svg viewBox="0 0 24 24"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.83 1.88 5.32 4.71 6.73-.17.65-.63 2.37-.72 2.74-.11.46.17.46.36.33.15-.1 2.37-1.62 3.33-2.27.74.1 1.51.17 2.32.17 5.52 0 10-3.58 10-8s-4.48-8-10-8z" fill="currentColor" stroke="none"/></svg></a>
+  <a href="https://map.kakao.com" target="_blank" rel="noopener noreferrer" aria-label="카카오맵"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+</div>
 </div>
 <div class="footer-nav">
 <h4>Menu</h4>
@@ -1383,18 +1961,25 @@ nav.scrolled{padding:14px 48px;background:rgba(253,251,249,.92);backdrop-filter:
 <a href="#services">시술 안내</a>
 <a href="#gallery">갤러리</a>
 <a href="#artists">아티스트</a>
+<a href="#signature">시그니처</a>
 <a href="#faq">FAQ</a>
 </div>
 <div class="footer-contact">
 <h4>Contact</h4>
-<p>서울 강남구 청담동</p>
-<p>화—일 11:00–20:00</p>
+<p>서울 강남구 청담동 00-00</p>
+<p>화 — 토 10:00 – 20:00</p>
+<p>일 · 월 정기 휴무</p>
+<p>마지막 예약 18:00</p>
 <p>02-000-0000</p>
 <a href="https://instagram.com/blanc.nail" target="_blank" rel="noopener noreferrer">@blanc.nail</a>
+<a href="https://pf.kakao.com/_zAqqX_blanc" target="_blank" rel="noopener noreferrer">카카오톡 채널</a>
 </div>
 </div>
 <div class="footer-bottom">
+<div>
 <span class="ft-copy">&copy; <span id="copyrightYear">2025</span> BLANC &mdash; Nail Atelier, Cheongdam.</span>
+<span class="ft-copy" style="display:block;margin-top:4px">사업자등록번호 000-00-00000 | 대표 정소윤</span>
+</div>
 <button class="ft-top" id="ftTop">Top &uarr;</button>
 </div>
 </footer>
@@ -1466,7 +2051,7 @@ if (!isMobile) {
     el.addEventListener('mouseenter', () => { ring.classList.add('gallery-hover'); curLabel.textContent = 'View'; curLabel.classList.add('show'); cur.classList.add('big'); });
     el.addEventListener('mouseleave', () => { ring.classList.remove('gallery-hover'); curLabel.classList.remove('show'); cur.classList.remove('big'); });
   });
-  document.querySelectorAll('.nav-link,.nav-logo,.nav-cta,.btn-line,.btn-fill,.kakao-float,.insta-btn,.hero-cta,.hero-cta-line,.rv-arrow,.footer-back-top,.gal-cta,.back-top').forEach(el => {
+  document.querySelectorAll('.nav-link,.nav-logo,.nav-cta,.btn-line,.btn-fill,.kakao-float,.insta-btn,.hero-cta,.hero-cta-line,.rv-arrow,.footer-back-top,.gal-cta,.back-top,.cta-btn-fill,.cta-btn-out').forEach(el => {
     el.addEventListener('mouseenter', () => ring.classList.add('nav-hover'));
     el.addEventListener('mouseleave', () => ring.classList.remove('nav-hover'));
   });
@@ -1738,7 +2323,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
    카드에 마우스 위치에 따른 미묘한 3D 기울임
    ============================================================ */
 if (!isMobile) {
-  document.querySelectorAll('.svc-card, .art-card').forEach(card => {
+  document.querySelectorAll('.svc-card, .art-card, .pal-item, .prm-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - .5;
@@ -1756,7 +2341,7 @@ if (!isMobile) {
    CTA 버튼이 마우스를 살짝 따라가는 효과
    ============================================================ */
 if (!isMobile) {
-  document.querySelectorAll('.hero-cta, .nav-cta, .insta-btn').forEach(btn => {
+  document.querySelectorAll('.hero-cta, .nav-cta, .insta-btn, .cta-btn-fill, .cta-btn-out').forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const rect = btn.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
@@ -1859,10 +2444,44 @@ requestAnimationFrame(() => updateSecDots(window.scrollY));
 window.addEventListener('scroll', () => updateSecDots(window.scrollY), { passive: true });
 
 /* ============================================================
+   SHIMMER TEXT — 뷰포트 진입 시 골드 시머 효과 발동
+   ============================================================ */
+const shimmerObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('animate'); shimmerObs.unobserve(e.target); }
+  });
+}, { threshold: .3, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.shimmer-text').forEach(el => shimmerObs.observe(el));
+
+/* ============================================================
+   PARALLAX FLOAT — 스크롤 시 장식 요소 미세 이동
+   ============================================================ */
+const floatEls = document.querySelectorAll('.prm-icon, .fv-dot, .pal-swatch');
+if (floatEls.length && !prefersReduced) {
+  let lastSY = 0, floatTick = false;
+  window.addEventListener('scroll', () => {
+    lastSY = window.scrollY;
+    if (!floatTick) {
+      floatTick = true;
+      requestAnimationFrame(() => {
+        floatEls.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const offset = (rect.top / window.innerHeight - 0.5) * 8;
+            el.style.transform = `translateY(${offset}px)`;
+          }
+        });
+        floatTick = false;
+      });
+    }
+  }, { passive: true });
+}
+
+/* ============================================================
    IMAGE PROTECTION — 이미지 우클릭·드래그 방지
    ============================================================ */
-document.addEventListener('contextmenu', e => { if (e.target.closest('.gal-item,.art-img,.about-img-wrap,.hero-bg,.lb-inner')) e.preventDefault(); });
-document.addEventListener('dragstart', e => { if (e.target.closest('.gal-item,.art-img,.about-img-wrap,.hero-bg,.lb-inner')) e.preventDefault(); });
+document.addEventListener('contextmenu', e => { if (e.target.closest('.gal-item,.art-img,.about-img-wrap,.hero-bg,.lb-inner,.photo-band')) e.preventDefault(); });
+document.addEventListener('dragstart', e => { if (e.target.closest('.gal-item,.art-img,.about-img-wrap,.hero-bg,.lb-inner,.photo-band')) e.preventDefault(); });
 
 // 포트폴리오 프리뷰용 자동스크롤 (iframe 안에 있을 때만 작동)
 var _isPreview=false;try{_isPreview=window.self!==window.top}catch(e){_isPreview=true}
